@@ -28,13 +28,16 @@ const channelFlowWorker = new Worker(
 				return item.feed;
 			});
 
-			await prisma.feed.createMany({ data: feeds, skipDuplicates: true });
+			const createdFeeds = await prisma.feed.createMany({ data: feeds, skipDuplicates: true });
 			await prisma.channel.update({
 				where: { id: job.data.id },
 				data: { rssHash: job.data.rssHash },
 			});
 
-			log.info(logNameSpace, `${queueName} - ${job.data.name} has been completed`);
+			log.info(
+				logNameSpace,
+				`${queueName} - ${job.data.name} has been completed with ${createdFeeds.count} new feeds`
+			);
 			return;
 		} catch (error) {
 			log.error(logNameSpace, `${queueName} - ${job.data.name} has failed! ${error}`);
@@ -84,10 +87,6 @@ const feedWorker = new Worker(
 		concurrency: 2,
 	}
 );
-
-feedWorker.on('completed', () => {
-	log.info(logNameSpace, `${queueName} has been completed`);
-});
 
 feedWorker.on('failed', (job, error) => {
 	log.error(logNameSpace, `${queueName} - ${job.id} has failed! ${error.message}`);

@@ -11,12 +11,12 @@ const logNameSpace = 'TaskObserver';
 	if (MAINTENANCE !== 'enabled') {
 		await cronQueue.add(
 			'',
-			{},
-			{
-				repeat: {
-					cron: '*/60 * * * *',
-				},
-			}
+			{}
+			// {
+			// 	repeat: {
+			// 		cron: '*/60 * * * *',
+			// 	},
+			// }
 		);
 	}
 })();
