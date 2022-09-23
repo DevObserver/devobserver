@@ -1,0 +1,16 @@
+# Folders
+.idea
+.turbo
+.next
+build
+dist
+data
+node_modules
+
+# Files
+.DS_Store
+.env
+.env.prod
+*.p8
+
+packages/data-migration

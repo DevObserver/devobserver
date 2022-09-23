@@ -1,0 +1,59 @@
+{
+	"globalDependencies": [
+		".env"
+	],
+	"pipeline": {
+		"@devobserver/prisma#build": {
+			"cache": false
+		},
+		"@devobserver/prisma#start": {
+			"cache": false
+		},
+		"@devobserver/log#build": {
+			"cache": false
+		},
+		"@devobserver/devobserver#dev": {
+			"cache": false
+		},
+		"@devobserver/devobserver#build": {
+			"cache": false,
+			"dependsOn": [
+				"@devobserver/log#build",
+				"@devobserver/prisma#build"
+			]
+		},
+		"@devobserver/devobserver#start": {
+			"cache": false
+		},
+		"@devobserver/browser-extension#dev": {
+			"cache": false,
+			"dependsOn": [
+				"@devobserver/devobserver#dev"
+			]
+		},
+		"@devobserver/browser-extension#build": {
+		},
+		"@devobserver/moderator#dev": {
+			"cache": false
+		},
+		"@devobserver/task-observer#dev": {
+			"cache": false
+		},
+		"@devobserver/task-observer#build": {
+			"cache": false,
+			"dependsOn": [
+				"@devobserver/log#build",
+				"@devobserver/prisma#build"
+			]
+		},
+		"@devobserver/task-observer#start": {
+			"cache": false
+		},
+		"build": {},
+		"dev": {
+			"cache": false
+		},
+		"lint": {},
+		"start": {}
+	}
+}

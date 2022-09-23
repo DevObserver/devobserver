@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	outline: none;
+	padding: 0;
+}
+
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+*:active,
+*:focus,
+*:hover {
+	outline: none;
+}
+
+html,
+body {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+body {
+	background-color: #fff;
+	color: #181818;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.4;
+	overflow-x: hidden;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.row1Animation {
+	animation: Row1Animation 280s ease infinite;
+}
+
+.row2Animation {
+	animation: Row2Animation 280s ease infinite;
+}
+
+.row3Animation {
+	animation: Row3Animation 280s ease infinite;
+}
+
+@keyframes Row1Animation {
+	0%{transform:translateX(-20px)}
+	100%{transform:translateX(-1780px)}
+}
+
+@keyframes Row2Animation {
+	0%{transform:translateX(-60px)}
+	100%{transform:translateX(-1780px)}
+}
+
+@keyframes Row3Animation {
+	0%{transform:translateX(-128px)}
+	100%{transform:translateX(-1780px)}
+}

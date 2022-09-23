@@ -1,0 +1,7 @@
+{
+	"extends": "@devobserver/tsconfig/tsconfig.json",
+	"compilerOptions": {
+		"typeRoots": ["./@types"],
+		"outDir": "./dist"
+	}
+}

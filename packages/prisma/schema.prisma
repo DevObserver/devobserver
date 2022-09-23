@@ -1,0 +1,283 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id            String    @id @unique(map: "admin_id_uindex") @default(uuid())
+  firstName     String?   @db.VarChar(255)
+  lastName      String?   @db.VarChar(255)
+  username      String?   @db.VarChar(255)
+  password      String    @db.Text
+  email         String    @db.VarChar(255)
+  emailVerified Boolean?
+  image         String?   @db.VarChar(255)
+  created       DateTime? @default(now()) @db.Timestamptz(0)
+  modified      DateTime? @default(now()) @db.Timestamptz(0)
+
+  @@map("admin")
+}
+
+model adminSession {
+  id     String   @id @unique(map: "adminSession_id_uindex") @default(uuid())
+  sid    String   @db.VarChar(128)
+  expire DateTime @db.Timestamptz(6)
+  sess   Json?    @db.Json
+
+  @@ignore()
+}
+
+model Award {
+  id       String    @id @unique @default(uuid())
+  name     String?   @db.VarChar(255)
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  feed     Feed[]
+
+  @@unique([name])
+  @@index([name], map: "award_name")
+  @@map("award")
+}
+
+model Category {
+  id       String    @id @unique(map: "category_id_uindex") @default(uuid())
+  name     String?   @db.VarChar(255)
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  channel  Channel[]
+  feed     Feed[]
+
+  @@unique([name])
+  @@index([name], map: "category_name")
+  @@map("category")
+}
+
+model Channel {
+  id                  String                @id @unique(map: "channel_id_uindex") @default(uuid())
+  name                String                @db.VarChar(255)
+  url                 String?               @unique @db.VarChar(255)
+  rss                 String?               @unique @db.VarChar(255)
+  rssHash             String?               @db.VarChar(255)
+  image               String?               @db.VarChar(255)
+  coverImage          String?               @db.VarChar(255)
+  description         String?               @db.Text
+  color               String?               @db.VarChar(255)
+  feedImage           String?               @db.VarChar(255)
+  categoryId          String
+  typeId              String
+  enabled             Boolean               @default(false)
+  created             DateTime?             @default(now()) @db.Timestamptz(0)
+  modified            DateTime?             @default(now()) @db.Timestamptz(0)
+  category            Category              @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "channel_category_id_fk")
+  type                Type                  @relation(fields: [typeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "channel_type_id_fk")
+  channelTag          ChannelTag[]
+  feed                Feed[]
+  userChannelBlocked  UserChannelBlocked[]
+  userChannelFollowed UserChannelFollowed[]
+
+  @@index([categoryId], map: "channel_category_index_id_fk")
+  @@index([typeId], map: "channel_type_index_id_fk")
+  @@index([name], map: "channel_name")
+  @@map("channel")
+}
+
+model ChannelTag {
+  id        String  @id @unique(map: "channelTag_id_uindex") @default(uuid())
+  channelId String
+  tagId     String
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "channelTag_channel_id_fk")
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "channelTag_tag_id_fk")
+
+  @@index([channelId], map: "channelTag_channel_index_id_fk")
+  @@index([tagId], map: "channelTag_tag_index_id_fk")
+  @@map("channelTag")
+}
+
+model Feed {
+  id             String           @id @unique(map: "feed_id_uindex") @default(uuid())
+  index          Int              @unique @default(autoincrement())
+  title          String?          @db.VarChar(255)
+  url            String?          @unique @db.Text
+  image          String?          @db.VarChar(255)
+  coverImage     String?          @db.VarChar(255)
+  channelId      String
+  categoryId     String
+  awardId        String
+  typeId         String
+  published      Boolean          @default(true)
+  likes          Int?             @default(0)
+  views          Int?             @default(0)
+  created        DateTime?        @default(now()) @db.Timestamptz(0)
+  modified       DateTime?        @default(now()) @db.Timestamptz(0)
+  award          Award            @relation(fields: [awardId], references: [id], onDelete: Cascade, map: "feed_award_id_fk")
+  category       Category         @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "feed_category_id_fk")
+  channel        Channel          @relation(fields: [channelId], references: [id], onDelete: Cascade, map: "feed_channel_id_fk")
+  type           Type             @relation(fields: [typeId], references: [id], onDelete: Cascade, map: "feed_type_id_fk")
+  feedTag        FeedTag[]
+  userFeedLiked  UserFeedLiked[]
+  userFeedSaved  UserFeedSaved[]
+  userFeedViewed UserFeedViewed[]
+
+  @@index([awardId], map: "feed_award_index_id_fk")
+  @@index([categoryId], map: "feed_category_index_id_fk")
+  @@index([channelId], map: "feed_channel_index_id_fk")
+  @@index([typeId], map: "feed_type_index_id_fk")
+  @@index([title], map: "title")
+  @@index([created(sort: Desc)])
+  @@index([index])
+  @@index([categoryId])
+  @@map("feed")
+}
+
+model FeedTag {
+  id     String @id @unique(map: "feedTag_id_uindex") @default(uuid())
+  feedId String
+  tagId  String
+  feed   Feed   @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "feedTag_feed_id_fk")
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "feedTag_tag_id_fk")
+
+  @@index([feedId], map: "feedTag_feed_index_id_fk")
+  @@index([tagId], map: "feedTag_tag_index_id_fk")
+  @@map("feedTag")
+}
+
+model Tag {
+  id         String       @id @unique(map: "tag_id_uindex") @default(uuid())
+  name       String       @db.VarChar(255)
+  created    DateTime?    @default(now()) @db.Timestamptz(0)
+  modified   DateTime?    @default(now()) @db.Timestamptz(0)
+  channelTag ChannelTag[]
+  feedTag    FeedTag[]
+
+  @@unique([name])
+  @@index([name], map: "tag_name")
+  @@map("tag")
+}
+
+model Type {
+  id       String    @id @unique(map: "table_name_type_uindex") @default(uuid())
+  name     String    @db.VarChar(255)
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  channel  Channel[]
+  feed     Feed[]
+
+  @@unique([name])
+  @@index([name], map: "type_name")
+  @@map("type")
+}
+
+model User {
+  id                  String                @id @unique(map: "user_id_uindex") @default(uuid())
+  name                String                @db.VarChar(255)
+  email               String                @db.VarChar(255)
+  image               String?               @db.VarChar(255)
+  created             DateTime?             @default(now()) @db.Timestamptz(0)
+  modified            DateTime?             @default(now()) @db.Timestamptz(0)
+  accounts            UserAccount[]
+  userChannelBlocked  UserChannelBlocked[]
+  userChannelFollowed UserChannelFollowed[]
+  userFeedLiked       UserFeedLiked[]
+  userFeedSaved       UserFeedSaved[]
+  userFeedViewed      UserFeedViewed[]
+
+  @@unique([email])
+  @@index([email])
+  @@map("user")
+}
+
+model UserAccount {
+  id                String    @id @unique(map: "account_id_uindex") @default(uuid())
+  userId            String    @db.VarChar(255)
+  provider          String    @db.VarChar(255)
+  providerAccountId String    @db.VarChar(255)
+  profile           Json?     @db.Json
+  lastLogin         DateTime? @db.Timestamptz(0)
+  authScheme        String?   @db.VarChar(255)
+  displayName       String?   @db.VarChar(255)
+  userName          String?   @db.VarChar(255)
+  created           DateTime? @default(now()) @db.Timestamptz(0)
+  modified          DateTime? @default(now()) @db.Timestamptz(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@index([providerAccountId])
+  @@map("userAccount")
+}
+
+model UserChannelBlocked {
+  id        String   @id @unique(map: "userChannelBlocked_id_uindex") @default(uuid())
+  userId    String
+  channelId String?
+  channel   Channel? @relation(fields: [channelId], references: [id], onDelete: Cascade, map: "userChannelBlocked_channel_id_fk")
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "userChannelBlocked_user_id_fk")
+
+  @@unique([userId, channelId])
+  @@index([channelId], map: "userChannelBlocked_channel_index_id_fk")
+  @@index([userId], map: "userChannelBlocked_user_index_id_fk")
+  @@map("userChannelBlocked")
+}
+
+model UserChannelFollowed {
+  id        String  @id @unique(map: "userChannel_id_uindex") @default(uuid())
+  userId    String
+  channelId String
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userChannel_channel_id_fk")
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "userChannel_user_id_fk")
+
+  @@unique([userId, channelId])
+  @@index([channelId], map: "userChannel_channel_index_id_fk")
+  @@index([userId], map: "userChannel_user_index_id_fk")
+  @@map("userChannelFollowed")
+}
+
+model UserFeedLiked {
+  id       String    @id @unique(map: "userFeedLike_id_uindex") @default(uuid())
+  userId   String
+  feedId   String
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeedLike_feed_id_fk")
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, map: "userFeedLike_user_id_fk")
+
+  @@unique([userId, feedId])
+  @@index([feedId], map: "userFeedLike_feed_index_id_fk")
+  @@index([userId], map: "userFeedLike_user_index_id_fk")
+  @@map("userFeedLiked")
+}
+
+model UserFeedSaved {
+  id       String    @id @unique(map: "userFeed_id_uindex") @default(uuid())
+  userId   String
+  feedId   String
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeed_feed_id_fk")
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "userFeed_user_id_fk")
+
+  @@unique([userId, feedId])
+  @@index([feedId], map: "userFeed_feed_index_id_fk")
+  @@index([userId], map: "userFeed_user_index_id_fk")
+  @@map("userFeedSaved")
+}
+
+model UserFeedViewed {
+  id       String    @id @unique(map: "userFeedView_id_uindex") @default(uuid())
+  userId   String
+  feedId   String
+  created  DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0)
+  feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeedView_feed_id_fk")
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "userFeedView_user_id_fk")
+
+  @@unique([userId, feedId])
+  @@index([feedId], map: "userFeedView_feed_index_id_fk")
+  @@index([userId], map: "userFeedView_user_index_id_fk")
+  @@map("userFeedViewed")
+}
