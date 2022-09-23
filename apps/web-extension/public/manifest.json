@@ -1,7 +1,7 @@
 {
 	"name": "DevObserver",
 	"description": "Stay tuned with the latest developer news, articles, tutorials, releases, fun and much more.",
-	"version": "1.1.0",
+	"version": "1.2.1",
 	"manifest_version": 3,
 	"chrome_url_overrides": {
 		"newtab": "index.html"
@@ -22,13 +22,11 @@
 	"permissions": [],
 	"web_accessible_resources" : [{
 		"resources" : [ "index.html" ],
-		"matches" : ["https://*/*", "http://*/*"],
+		"matches" : ["https://*/*"],
 		"extension_ids" : []
 	}],
 	"host_permissions": [
 		"*://*.devobserver.com/*",
-		"*://devobserver.com/*",
-		"*://localhost/*"
-
+		"*://devobserver.com/*"
 	]
 }

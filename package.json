@@ -1,7 +1,9 @@
 {
   "name": "devobserver",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "",
+  "author": "Pochtar Eduard <iamfrntdv@gmail.com>",
+  "private": true,
   "scripts": {
     "build:landing": "turbo run build --scope=\"@devobserver/landing\"",
     "dev:landing": "turbo run dev --scope=\"@devobserver/landing\"",
@@ -24,8 +26,6 @@
     "url": "git+https://github.com/DevObserver/devobserver.git"
   },
   "keywords": [],
-  "private": true,
-  "author": "Eduard Pochtar<iamfrntdv@gmail.com>",
   "bugs": {
     "url": "https://github.com/DevObserver/devobserver/issues"
   },
