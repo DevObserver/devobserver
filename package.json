@@ -1,0 +1,56 @@
+{
+  "name": "devobserver",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:landing": "turbo run build --scope=\"@devobserver/landing\"",
+    "dev:landing": "turbo run dev --scope=\"@devobserver/landing\"",
+    "lint:landing": "turbo run lint --scope=\"@devobserver/landing\"",
+    "start:landing": "turbo run start --scope=\"@devobserver/landing\"",
+    "dev:app": "turbo run dev --scope=\"@devobserver/devobserver\"",
+    "build:app": "turbo run build --scope=\"@devobserver/devobserver\"",
+    "start:app": "turbo run start --scope=\"@devobserver/devobserver\"",
+    "dev:extension": "turbo run dev --scope=\"@devobserver/browser-extension\"",
+    "build:extension": "turbo run build --scope=\"@devobserver/browser-extension\"",
+    "dev:task-observer": "turbo run dev --scope=\"@devobserver/task-observer\"",
+    "build:task-observer": "turbo run build --scope=\"@devobserver/task-observer\"",
+    "start:task-observer": "turbo run start --scope=\"@devobserver/task-observer\"",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:nuke": "docker compose down --volumes --remove-orphans"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevObserver/devobserver.git"
+  },
+  "keywords": [],
+  "private": true,
+  "author": "Eduard Pochtar<iamfrntdv@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/DevObserver/devobserver/issues"
+  },
+  "homepage": "https://github.com/DevObserver/devobserver#readme",
+  "packageManager": "npm@8.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.3.0",
+    "turbo": "1.4.3"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
+  },
+  "overrides": {
+    "@vanilla-extract/vite-plugin": {
+      "vite": "^3"
+    }
+  },
+  "engines": {
+    "node": "17.x",
+    "npm": "8.x"
+  }
+}

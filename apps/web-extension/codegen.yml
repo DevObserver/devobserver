@@ -1,0 +1,6 @@
+overwrite: true
+schema: 'http://localhost:3000/api'
+generates:
+  src/types/GeneratedTypes.ts:
+    plugins:
+      - typescript

@@ -1,0 +1,34 @@
+{
+	"name": "DevObserver",
+	"description": "Stay tuned with the latest developer news, articles, tutorials, releases, fun and much more.",
+	"version": "1.1.0",
+	"manifest_version": 3,
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {},
+	"icons": {
+		"16": "icons/dev-observer-16.png",
+		"32": "icons/dev-observer-32.png",
+		"48": "icons/dev-observer-48.png",
+		"96": "icons/dev-observer-96.png",
+		"128": "icons/dev-observer-128.png",
+		"256": "icons/dev-observer-256.png",
+		"512": "icons/dev-observer-512.png"
+	},
+	"permissions": [],
+	"web_accessible_resources" : [{
+		"resources" : [ "index.html" ],
+		"matches" : ["https://*/*", "http://*/*"],
+		"extension_ids" : []
+	}],
+	"host_permissions": [
+		"*://*.devobserver.com/*",
+		"*://devobserver.com/*",
+		"*://localhost/*"
+
+	]
+}
