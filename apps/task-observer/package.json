@@ -6,7 +6,7 @@
   "private": true,
   "main": "dist/app.js",
   "scripts": {
-    "dev": "DEBUG=DevObserver:* nodemon",
+    "dev": "DEBUG=DevObserver:* nodemon src/app.ts",
     "build": "tsc",
     "start": "DEBUG=DevObserver:* node dist/app.js",
     "lint": "eslint src/**/*.ts",
@@ -17,7 +17,7 @@
     "@devobserver/prisma": "*",
     "@devobserver/tsconfig": "*",
     "aws-sdk": "2.1212.0",
-    "bullmq": "1.90.1",
+    "bullmq": "2.1.0",
     "dotenv": "16.0.2",
     "env-var": "7.3.0",
     "feedparser": "2.2.10",
