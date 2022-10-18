@@ -1,8 +1,12 @@
-import SectionHero from '@/components/SectionHero';
-import SectionAppPreview from '@/components/SectionAppPreview';
-import SectionAppPreview2 from '@/components/SectionAppPreview2';
-import SectionFeaturesList from '@/components/SectionFeaturesList';
-import { SectionFeeds } from '@/components/SectionFeeds';
+import Section1 from '@/components/HomePageSections/Section1';
+// import SectionAppPreview from '@/components/SectionAppPreview';
+// import SectionAppPreview2 from '@/components/SectionAppPreview2';
+// import SectionFeaturesList from '@/components/SectionFeaturesList';
+import { Section2 } from '@/components/HomePageSections/Section2';
+import Section3 from '@/components/HomePageSections/Section3';
+import { Section4 } from '@/components/HomePageSections/Section4';
+import { Section5 } from '@/components/HomePageSections/Section5';
+
 import { gqPublicClient } from '../graphql/client';
 import { PUBLIC_FEEDS_QUERY } from '../graphql/queries/feeds';
 
@@ -14,11 +18,11 @@ export async function getServerSideProps() {
 const HomePage = ({ data }: any) => {
 	return (
 		<>
-			<SectionHero />
-			<SectionAppPreview />
-			<SectionFeaturesList />
-			<SectionFeeds data={data} />
-			<SectionAppPreview2 />
+			<Section1 />
+			<Section2 data={data} />
+			<Section3 />
+			<Section4 />
+			<Section5 />
 		</>
 	);
 };

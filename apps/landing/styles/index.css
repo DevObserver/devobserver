@@ -42,6 +42,86 @@ a {
 	text-decoration: none;
 }
 
+.scaleOut {
+	animation: scaleOut 2s ease;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+.slideInLeft {
+	animation: slideInLeft 2s ease;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+.slideInRight {
+	animation: slideInRight 2s ease;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+.slideInTop {
+	animation: slideInTop 2s ease;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+.slideInBottom {
+	animation: slideInBottom 2s ease;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+@keyframes scaleOut {
+	0%{
+		opacity: 1;
+		transform: scale(8,8)
+	}
+	100%{
+		opacity: 1;
+		transform: scale(1,1)
+	}
+}
+
+@keyframes slideInLeft {
+	0%{
+		opacity: 0;
+		transform:translateX(-50%)}
+	100%{
+		opacity: 1;
+		transform:translateX(0)}
+}
+
+@keyframes slideInRight {
+	0%{
+		opacity: 0;
+		transform:translateX(50%)}
+	100%{
+		opacity: 1;
+		transform:translateX(0)}
+}
+
+@keyframes slideInTop {
+	0%{
+		opacity: 0;
+		transform:translateY(-100%)}
+	100%{
+		opacity: 1;
+		transform:translateY(0)}
+}
+
+@keyframes slideInBottom {
+	0%{
+		opacity: 0;
+		transform:translateY(100%)}
+	100%{
+		opacity: 1;
+		transform:translateY(0)}
+}
+
 .row1Animation {
 	animation: Row1Animation 280s ease infinite;
 }
@@ -55,8 +135,8 @@ a {
 }
 
 @keyframes Row1Animation {
-	0%{transform:translateX(-20px)}
-	100%{transform:translateX(-1780px)}
+	0%{transform:translateX(-72px)}
+	100%{transform:translateX(-2400px)}
 }
 
 @keyframes Row2Animation {

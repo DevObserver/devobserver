@@ -1,9 +1,9 @@
 import { x } from '@xstyled/emotion';
 import Head from 'next/head';
 
+import { Footer } from '@/components/Layouts/Footer';
+import { Header } from '@/components/Layouts/Header';
 import { Children } from '@/types/children';
-import { Footer } from '@/components/layouts/Footer';
-import { Header } from '@/components/layouts/Header';
 
 export const Layout = ({ children }: Children) => {
 	return (
@@ -42,7 +42,7 @@ export const Layout = ({ children }: Children) => {
 			</Head>
 
 			<Header />
-			<x.main py={96}>{children}</x.main>
+			<x.main>{children}</x.main>
 			<Footer />
 		</>
 	);

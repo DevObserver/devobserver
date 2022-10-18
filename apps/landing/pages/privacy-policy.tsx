@@ -1,6 +1,6 @@
 import { x } from '@xstyled/emotion';
 
-import { Container } from '@/components/elements/Container';
+import { Container } from '@/components/Elements/Container';
 
 const PrivacyPolicyPage = () => {
 	return (

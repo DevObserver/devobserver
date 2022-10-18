@@ -1,7 +1,7 @@
 import { x } from '@xstyled/emotion';
 import Image from 'next/image';
 
-import { Container } from '@/components/elements/Container';
+import { Container } from '@/components/Elements/Container';
 
 const AboutPage = () => {
 	return (

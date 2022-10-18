@@ -2,7 +2,7 @@ import { x } from '@xstyled/emotion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Container } from '@/components/elements/Container';
+import { Container } from '@/components/Elements/Container';
 
 export const Footer = () => {
 	return (

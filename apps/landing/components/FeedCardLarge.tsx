@@ -1,21 +1,21 @@
 import { x } from '@xstyled/emotion';
 import Image from 'next/image';
 
-export const FeedCard = ({ feed }: any) => {
+export const FeedCardLarge = ({ feed }: any) => {
 	return (
 		<x.div
 			borderRadius={24}
 			display="flex"
 			overflow="hidden"
 			position="relative"
-			w={380}
-			h={226}
+			w={540}
+			h={360}
 			flexShrink={0}>
 			<x.div display="flex">
 				<Image
 					src={`https://assets.devobserver.com${feed.image}`}
-					objectFit="cover"
 					height={280}
+					objectFit="cover"
 					width={640}
 					alt="Feed Image"
 				/>
