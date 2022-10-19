@@ -42,6 +42,7 @@ const linkList = [
 const Section1 = () => {
 	return (
 		<x.section
+			className="mobileFullHeight"
 			alignItems="center"
 			display="flex"
 			minHeight={{
@@ -72,9 +73,9 @@ const Section1 = () => {
 					</x.h1>
 					<x.h2
 						color="#fff"
+						className="textStroke"
 						display="flex"
 						flexDirection="column"
-						textShadow="0 0 1px #000"
 						fontSize={{
 							_: 32,
 							sm: 48,
