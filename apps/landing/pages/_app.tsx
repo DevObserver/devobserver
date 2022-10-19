@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 
-import { Layout } from '@/components/Layouts/Layout';
+import { Layout } from '@/components/Layout/Layout';
 
 import { theme } from '../theme';
 

@@ -1,7 +1,6 @@
+import { x } from '@xstyled/emotion';
+
 import Section1 from '@/components/HomePageSections/Section1';
-// import SectionAppPreview from '@/components/SectionAppPreview';
-// import SectionAppPreview2 from '@/components/SectionAppPreview2';
-// import SectionFeaturesList from '@/components/SectionFeaturesList';
 import { Section2 } from '@/components/HomePageSections/Section2';
 import Section3 from '@/components/HomePageSections/Section3';
 import { Section4 } from '@/components/HomePageSections/Section4';
@@ -17,13 +16,13 @@ export async function getServerSideProps() {
 
 const HomePage = ({ data }: any) => {
 	return (
-		<>
+		<x.div overflowX="hidden">
 			<Section1 />
 			<Section2 data={data} />
 			<Section3 />
 			<Section4 />
 			<Section5 />
-		</>
+		</x.div>
 	);
 };
 

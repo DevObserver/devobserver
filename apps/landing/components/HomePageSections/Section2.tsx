@@ -24,14 +24,24 @@ export const Section2 = ({ data }: any) => {
 				/>
 			</Container>
 
-			<x.div display="flex" gap={24} mb={24} px={24} className="row1Animation">
+			<x.div
+				display="flex"
+				gap={{ _: 12, lg: 24 }}
+				mb={{ _: 12, lg: 24 }}
+				px={{ _: 12, lg: 24 }}
+				className="row1Animation">
 				{data.feedsEditorsChoice &&
 					data.feedsEditorsChoice.map((feed: any) => {
 						return <FeedCardLarge key={feed.id} feed={feed} />;
 					})}
 			</x.div>
 
-			<x.div display="flex" gap={24} mb={24} px={24} className="row2Animation">
+			<x.div
+				display="flex"
+				gap={{ _: 12, lg: 24 }}
+				mb={{ _: 12, lg: 24 }}
+				px={{ _: 12, lg: 24 }}
+				className="row2Animation">
 				{data.feeds &&
 					data.feeds.map((feed: any) => {
 						return <FeedCard key={feed.id} feed={feed} />;

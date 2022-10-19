@@ -1,8 +1,8 @@
 import { x } from '@xstyled/emotion';
 import Head from 'next/head';
 
-import { Footer } from '@/components/Layouts/Footer';
-import { Header } from '@/components/Layouts/Header';
+import { Footer } from '@/components/Layout/Footer';
+import { Header } from '@/components/Layout/Header';
 import { Children } from '@/types/children';
 
 export const Layout = ({ children }: Children) => {

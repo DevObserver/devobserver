@@ -7,8 +7,20 @@ import { Container } from '@/components/Elements/Container';
 export const Footer = () => {
 	return (
 		<x.footer backgroundColor="rgba(220,220,220,.2)" padding="64px 0" w="100%">
-			<Container display="flex" flexDirection="column" gap={48}>
-				<x.div display="flex" gap={64}>
+			<Container
+				display="flex"
+				flexDirection="column"
+				gap={{
+					_: 24,
+					md: 48,
+				}}>
+				<x.div
+					display="flex"
+					flexDirection={{
+						_: 'column',
+						md: 'row',
+					}}
+					gap={{ _: 24, md: 64 }}>
 					<x.div flexGrow={1}>
 						<Link href="/">
 							<x.div h="32" w="32">
@@ -59,14 +71,15 @@ export const Footer = () => {
 						</x.ul>
 					</x.div>
 				</x.div>
-				<x.div display="flex" justifyContent="flex-end">
-					<a
+				<x.div display="flex" justifyContent={{ md: 'flex-end' }}>
+					<x.a
 						href="https://simpleanalytics.com/?utm_source=devobserver.com&utm_content=badge"
 						rel="noreferrer"
 						referrerPolicy="origin"
+						maxWidth="160px"
 						target="_blank">
 						<Image src="/images/simpleanalytics.com.svg" alt="" width="210" height="50" />
-					</a>
+					</x.a>
 				</x.div>
 				<x.div>
 					<p>

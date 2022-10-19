@@ -4,12 +4,18 @@ import Image from 'next/image';
 export const FeedCardLarge = ({ feed }: any) => {
 	return (
 		<x.div
+			style={{
+				aspectRatio: '21 / 15',
+			}}
 			borderRadius={24}
 			display="flex"
 			overflow="hidden"
 			position="relative"
-			w={540}
-			h={360}
+			w={{
+				_: '90%',
+				md: '45%',
+				xl: '33.33%',
+			}}
 			flexShrink={0}>
 			<x.div display="flex">
 				<Image

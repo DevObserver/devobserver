@@ -8,7 +8,8 @@ import { SectionDescription } from '@/components/HomePageSections/SectionDescrip
 const Title = (props: any) => (
 	<x.li
 		fontSize={{
-			_: 24,
+			_: 20,
+			md: 24,
 			lg: 36,
 		}}
 		fontWeight={600}
@@ -84,7 +85,11 @@ export const Section5 = () => {
 				<x.ul
 					display="flex"
 					alignItems="center"
-					gap={48}
+					gap={{
+						_: 12,
+						sm: 16,
+						xl: 24,
+					}}
 					position="absolute"
 					top="50%"
 					left="50%"
@@ -92,7 +97,17 @@ export const Section5 = () => {
 					w="auto">
 					{images.map((image) => {
 						return (
-							<x.li display="flex" borderRadius="24px" overflow="hidden" w="220px" h="220px" flexShrink="0">
+							<x.li
+								display="flex"
+								borderRadius={{
+									_: 8,
+									lg: 12,
+									xl: 24,
+								}}
+								overflow="hidden"
+								w={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
+								h={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
+								flexShrink="0">
 								<Image src={image.src} alt="" width={image.width} height={image.height} />
 							</x.li>
 						);
@@ -100,7 +115,7 @@ export const Section5 = () => {
 				</x.ul>
 			</Container>
 			<Container>
-				<x.ul display="flex" flexDirection="column" gap={{ _: 32, lg: 64 }} maxWidth={560} mx="auto">
+				<x.ul display="flex" flexDirection="column" gap={{ _: 24, lg: 48, xl: 64 }} maxWidth={560} mx="auto">
 					<Title>Infinite inspiration</Title>
 
 					<Title>Hundreds of hand picked sources for you</Title>
