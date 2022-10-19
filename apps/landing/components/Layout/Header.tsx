@@ -1,16 +1,25 @@
+import { x } from '@xstyled/emotion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { x } from '@xstyled/emotion';
-
-import { Container } from '@/components/elements/Container';
+import { Container } from '@/components/Elements/Container';
 
 export const Header = () => {
 	return (
-		<x.header position="absolute" top={0} left={0} py={24} zIndex={100} w="100%">
+		<x.header className="slideInTop" position="absolute" top={0} left={0} py={24} zIndex={100} w="100%">
 			<Container alignItems="center" display="flex">
 				<Link href="/">
-					<x.div h="48px" w="48px">
+					<x.div
+						h={{
+							_: 24,
+							md: 32,
+							lg: 48,
+						}}
+						w={{
+							_: 24,
+							md: 32,
+							lg: 48,
+						}}>
 						<Image src="/images/do-logo.svg" alt="" width="64" height="64" />
 					</x.div>
 				</Link>
@@ -40,7 +49,7 @@ export const Header = () => {
 					</x.ul>
 				</x.nav>
 			</Container>
-			{/*<div className="max-w-1320 mx-auto px-24 relative w-full">
+			{/* <div className="max-w-1320 mx-auto px-24 relative w-full">
 					<div className="flex items-center justify-between gap-24">
 						<div className="max-w-36 md:max-w-48">
 

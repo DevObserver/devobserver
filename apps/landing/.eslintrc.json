@@ -2,7 +2,22 @@
   "extends": [
 		"next/core-web-vitals"
 	],
+	"plugins": [
+		"react",
+		"react-hooks",
+		"@typescript-eslint",
+		"prettier",
+		"simple-import-sort",
+		"import"
+	],
 	"rules": {
-		"react/no-unescaped-entities": 0
+		"@typescript-eslint/no-explicit-any": "error",
+		"camelcase": "error",
+		"no-duplicate-imports": "error",
+		"react/no-unescaped-entities": "off",
+		"react/react-in-jsx-scope": "off",
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": "error",
+		"spaced-comment": "error"
 	}
 }
