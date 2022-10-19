@@ -17,8 +17,8 @@ export const Section4 = () => {
 				<x.div
 					mt={{
 						_: '',
-						xl: '-120px',
-						xxl: '-180px',
+						xl: '-72px',
+						xxl: '-96px',
 					}}>
 					<Image src="/images/2.png" alt="" width="1960" height="1470" />
 				</x.div>

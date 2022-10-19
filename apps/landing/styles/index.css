@@ -52,14 +52,14 @@ a {
 	animation: slideInLeft 2s ease;
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 .slideInRight {
 	animation: slideInRight 2s ease;
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 .slideInTop {
@@ -68,12 +68,27 @@ a {
 	animation-fill-mode: forwards;
 	opacity: 0;
 }
+
 .slideInBottom {
 	animation: slideInBottom 2s ease;
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
 	opacity: 0;
 }
+
+.textStroke {
+	animation: strokeAnimation 2s ease;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	/*filter: drop-shadow(0 0 1px #909090);*/
+}
+
+@supports (height: 100svh) {
+	.mobileFullHeight.mobileFullHeight {
+		height: 100svh;
+	}
+}
+
 
 @keyframes scaleOut {
 	0%{
@@ -88,19 +103,19 @@ a {
 
 @keyframes slideInLeft {
 	0%{
-		opacity: 0;
+		/*opacity: 0;*/
 		transform:translateX(-50%)}
 	100%{
-		opacity: 1;
+		/*opacity: 1;*/
 		transform:translateX(0)}
 }
 
 @keyframes slideInRight {
 	0%{
-		opacity: 0;
+		/*opacity: 0;*/
 		transform:translateX(50%)}
 	100%{
-		opacity: 1;
+		/*opacity: 1;*/
 		transform:translateX(0)}
 }
 
@@ -120,6 +135,15 @@ a {
 	100%{
 		opacity: 1;
 		transform:translateY(0)}
+}
+
+@keyframes strokeAnimation {
+	0% {
+		filter: drop-shadow(0 0 0 #fff);
+	}
+	100% {
+		filter: drop-shadow(0 0 1px #909090);
+	}
 }
 
 .row1Animation {
