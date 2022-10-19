@@ -98,6 +98,7 @@ export const Section5 = () => {
 					{images.map((image) => {
 						return (
 							<x.li
+								key={image.src}
 								display="flex"
 								borderRadius={{
 									_: 8,
