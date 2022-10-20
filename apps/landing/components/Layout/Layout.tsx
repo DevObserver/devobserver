@@ -28,7 +28,7 @@ export const Layout = ({ children }: Children) => {
 					property="og:description"
 					content="Stay tuned with the latest developer news, articles, tutorials, releases, fun and much more."
 				/>
-				<meta property="og:image" content="https://devobserver.com/images/app.jpeg?width=960" />
+				<meta property="og:image" content="https://devobserver.com/images/og-app-card.png?width=960" />
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:url" content="https://devobserver.com" />
 				<meta property="twitter:title" content="DevObserver" />
@@ -36,7 +36,10 @@ export const Layout = ({ children }: Children) => {
 					property="twitter:description"
 					content="Stay tuned with the latest developer news, articles, tutorials, releases, fun and much more."
 				/>
-				<meta property="twitter:image" content="https://devobserver.com/images/app.jpeg?width=960" />
+				<meta
+					property="twitter:image"
+					content="https://devobserver.com/images/twitter-app-card.png?width=960"
+				/>
 				<meta name="theme-color" content="#fff" />
 				<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png" />
 			</Head>
