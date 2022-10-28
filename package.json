@@ -17,9 +17,11 @@
     "dev:task-observer": "turbo run dev --scope=\"@devobserver/task-observer\"",
     "build:task-observer": "turbo run build --scope=\"@devobserver/task-observer\"",
     "start:task-observer": "turbo run start --scope=\"@devobserver/task-observer\"",
+    "db:migarte": "turbo run build --scope=\"@devobserver/prisma\"",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
-    "docker:nuke": "docker compose down --volumes --remove-orphans"
+    "docker:nuke": "docker compose down --volumes --remove-orphans",
+    "predev": "dotenv-checker --schema .env.example --env .env"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,7 @@
     "turbo": "1.4.3"
   },
   "devDependencies": {
+    "dotenv-checker": "^1.1.5",
     "prettier": "2.7.1"
   },
   "overrides": {

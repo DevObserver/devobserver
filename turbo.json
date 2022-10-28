@@ -3,6 +3,9 @@
 		".env"
 	],
 	"pipeline": {
+		"@devobserver/prisma#migrate": {
+			"cache": false
+		},
 		"@devobserver/prisma#build": {
 			"cache": false
 		},
