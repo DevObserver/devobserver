@@ -10,6 +10,7 @@ import { MAINTENANCE } from './config';
 import { graphql } from './graphql';
 import { graphqlPublic } from './graphql-public';
 import { maintenance } from './middlewares/maintenance';
+import { closeAllQueues } from './queues';
 import { routes } from './routes';
 import { notFound } from './routes/not-found';
 
@@ -37,7 +38,8 @@ const isUnderMaintenance = MAINTENANCE === 'enabled';
 	});
 
 	['SIGINT', 'SIGTERM'].forEach((signal) => {
-		process.once(signal, () => {
+		process.once(signal, async () => {
+			await closeAllQueues();
 			server.close();
 		});
 	});

@@ -5,15 +5,21 @@ dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 export const MAINTENANCE = env.get('MAINTENANCE').default('disabled').required().asString();
 
+export const DATABASE_URL = env.get('DATABASE_URL').required().asString();
+export const DATABASE_CA = env.get('DATABASE_CA').asString();
+
+export const REDIS_HOST = env.get('REDIS_HOST').required().asString();
+export const REDIS_PORT = env.get('REDIS_PORT').required().asPortNumber();
+export const REDIS_USER = env.get('REDIS_USER').required().asString();
+export const REDIS_PASSWORD = env.get('REDIS_PASSWORD').asString();
+
 export const ALLOWED_ORIGINS = env.get('ALLOWED_ORIGINS').required().asString();
 export const COOKIE_NAME = env.get('COOKIE_NAME').required().asString();
 export const COOKIE_SECRET = env.get('COOKIE_SECRET').required().asString();
-export const DATABASE_URL = env.get('DATABASE_URL').required().asString();
-export const DATABASE_CA = env.get('DATABASE_CA').asString();
-export const IOS_CLIENT_APP_REDIRECT_URL = env.get('IOS_CLIENT_APP_REDIRECT_URL').required().asString();
 export const JWT_ISSUER = env.get('JWT_ISSUER').required().asString();
 export const JWT_SECRET = env.get('JWT_SECRET').required().asString();
 export const JWT_SUB = env.get('JWT_SUB').required().asString();
+export const IOS_CLIENT_APP_REDIRECT_URL = env.get('IOS_CLIENT_APP_REDIRECT_URL').required().asString();
 
 export const APPLE = {
 	APPLE_CLIENT_ID: env.get('APPLE_CLIENT_ID').required().asString(),

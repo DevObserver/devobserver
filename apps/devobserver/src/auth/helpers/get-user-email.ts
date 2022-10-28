@@ -1,4 +1,6 @@
-export const getUserEmail = (profile: any) => {
+import { Profile } from '../../types/Profile';
+
+export const getUserEmail = (profile: Profile) => {
 	if (profile.emails && profile.emails.length) {
 		return profile.emails[0].value;
 	}
