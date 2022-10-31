@@ -33,6 +33,7 @@ const linkList = [
 	},
 	{
 		name: 'Firefox Web Store',
+		url: 'https://addons.mozilla.org/en-US/firefox/addon/devobserver/',
 		image: '/images/firefox.svg',
 		imageWidth: '40',
 		imageHeight: '40',
