@@ -8,15 +8,15 @@ import { makeUrlAbsolute } from '../../utils/url-utils';
 const logNameSpace = 'RssObserver';
 
 const htmlMetaTags = [
-	'meta[property="og:image"]',
-	'meta[name="og:image"]',
-	'meta[property="og:image:url"]',
-	'meta[name="og:image:url"]',
-	'meta[property="og:image:secure_url"]',
-	'meta[name="twitter:image"]',
-	'meta[property="twitter:image"]',
-	'meta[name="twitter:image"]',
-	'meta[name="thumbnail"]',
+	'[property="og:image"]',
+	'[name="og:image"]',
+	'[property="og:image:url"]',
+	'[name="og:image:url"]',
+	'[property="og:image:secure_url"]',
+	'[name="twitter:image"]',
+	'[property="twitter:image"]',
+	'[name="twitter:image"]',
+	'[name="thumbnail"]',
 ];
 
 const getImageUrlFromHtmlMeta = (dom: any) => {
@@ -48,8 +48,8 @@ export const getFeedImage = async (feed: any) => {
 		}
 
 		return imageBuffer;
-	} catch (e) {
-		log.error(logNameSpace, `Failed to get feed image ${feed.channelId} / ${feed.title}`);
+	} catch (error) {
+		log.error(logNameSpace, `Failed to get feed image ${feed.channelId} / ${feed.title} ${error}`);
 		return undefined;
 	}
 };

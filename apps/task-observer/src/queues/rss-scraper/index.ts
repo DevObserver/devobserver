@@ -50,6 +50,7 @@ const rssScraperWorker = new Worker(
 				feed,
 			},
 			opts: {
+				delay: 1000,
 				removeOnComplete: true,
 				removeOnFail: true,
 			},
