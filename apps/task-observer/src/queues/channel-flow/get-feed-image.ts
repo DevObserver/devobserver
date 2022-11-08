@@ -31,9 +31,16 @@ const getImageUrlFromHtmlMeta = (dom: any) => {
 	return undefined;
 };
 
+const httpHeaders = {
+	'user-agent':
+		'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
+};
+
 export const getFeedImage = async (feed: any) => {
 	try {
-		const response = await got(feed.url);
+		const response = await got(feed.url, {
+			headers: httpHeaders,
+		});
 
 		const dom = await new JSDOM(response.body.replace(/<style(\s|>).*?<\/style>/gi, ''), {
 			pretendToBeVisual: true,
@@ -44,7 +51,9 @@ export const getFeedImage = async (feed: any) => {
 
 		if (imageUrl) {
 			const url = makeUrlAbsolute(feed.url, imageUrl);
-			imageBuffer = await got(url).buffer();
+			imageBuffer = await got(url, {
+				headers: httpHeaders,
+			}).buffer();
 		}
 
 		return imageBuffer;
