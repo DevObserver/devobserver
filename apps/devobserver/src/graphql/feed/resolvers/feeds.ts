@@ -28,16 +28,41 @@ type FeedsArgs = {
 	};
 	personalized?: boolean;
 	saved?: boolean;
+	viewed?: boolean;
 };
 
-export const feeds = async (parent: never, { filter, personalized }: FeedsArgs, { user, db }: Context) => {
+export const feeds = async (
+	parent: never,
+	{ filter, personalized, saved, viewed }: FeedsArgs,
+	{ user, db }: Context
+) => {
 	try {
 		const query: Prisma.FeedFindManyArgs = {
 			where: {
 				...(filter && filter.where),
-				index: {
-					lt: filter.cursor || undefined,
-				},
+				...(filter.cursor && {
+					index: {
+						lt: filter.cursor || undefined,
+					},
+				}),
+				...(saved && {
+					userFeedSaved: {
+						some: {
+							userId: {
+								equals: user.id,
+							},
+						},
+					},
+				}),
+				...(viewed && {
+					userFeedViewed: {
+						some: {
+							userId: {
+								equals: user.id,
+							},
+						},
+					},
+				}),
 				published: true,
 			},
 			orderBy: {

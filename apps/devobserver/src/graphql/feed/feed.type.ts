@@ -61,7 +61,7 @@ export const feedTypeDef = gql`
 	}
 
 	extend type Query {
-		feeds(filter: FeedsFilter, personalized: Boolean, saved: Boolean): [Feed]!
+		feeds(filter: FeedsFilter, personalized: Boolean, saved: Boolean, viewed: Boolean): [Feed]!
 		feedsSaved(
 			take: Int
 			skip: Int
