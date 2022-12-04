@@ -28,14 +28,14 @@ model adminSession {
   expire DateTime @db.Timestamptz(6)
   sess   Json?    @db.Json
 
-  @@ignore()
+  @@ignore
 }
 
 model Award {
   id       String    @id @unique @default(uuid())
   name     String?   @db.VarChar(255)
   created  DateTime? @default(now()) @db.Timestamptz(0)
-  modified DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
   feed     Feed[]
 
   @@unique([name])
@@ -47,7 +47,7 @@ model Category {
   id       String    @id @unique(map: "category_id_uindex") @default(uuid())
   name     String?   @db.VarChar(255)
   created  DateTime? @default(now()) @db.Timestamptz(0)
-  modified DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
   channel  Channel[]
   feed     Feed[]
 
@@ -71,7 +71,7 @@ model Channel {
   typeId              String
   enabled             Boolean               @default(false)
   created             DateTime?             @default(now()) @db.Timestamptz(0)
-  modified            DateTime?             @default(now()) @db.Timestamptz(0)
+  modified            DateTime?             @default(now()) @db.Timestamptz(0) @updatedAt
   category            Category              @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "channel_category_id_fk")
   type                Type                  @relation(fields: [typeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "channel_type_id_fk")
   channelTag          ChannelTag[]
@@ -112,7 +112,7 @@ model Feed {
   likes          Int?             @default(0)
   views          Int?             @default(0)
   created        DateTime?        @default(now()) @db.Timestamptz(0)
-  modified       DateTime?        @default(now()) @db.Timestamptz(0)
+  modified       DateTime?        @default(now()) @db.Timestamptz(0) @updatedAt
   award          Award            @relation(fields: [awardId], references: [id], onDelete: Cascade, map: "feed_award_id_fk")
   category       Category         @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "feed_category_id_fk")
   channel        Channel          @relation(fields: [channelId], references: [id], onDelete: Cascade, map: "feed_channel_id_fk")
@@ -127,7 +127,6 @@ model Feed {
   @@index([channelId], map: "feed_channel_index_id_fk")
   @@index([typeId], map: "feed_type_index_id_fk")
   @@index([title], map: "title")
-  @@index([created(sort: Desc)])
   @@index([index])
   @@index([categoryId])
   @@map("feed")
@@ -149,7 +148,7 @@ model Tag {
   id         String       @id @unique(map: "tag_id_uindex") @default(uuid())
   name       String       @db.VarChar(255)
   created    DateTime?    @default(now()) @db.Timestamptz(0)
-  modified   DateTime?    @default(now()) @db.Timestamptz(0)
+  modified   DateTime?    @default(now()) @db.Timestamptz(0) @updatedAt
   channelTag ChannelTag[]
   feedTag    FeedTag[]
 
@@ -177,7 +176,7 @@ model User {
   email               String                @db.VarChar(255)
   image               String?               @db.VarChar(255)
   created             DateTime?             @default(now()) @db.Timestamptz(0)
-  modified            DateTime?             @default(now()) @db.Timestamptz(0)
+  modified            DateTime?             @default(now()) @db.Timestamptz(0) @updatedAt
   accounts            UserAccount[]
   userChannelBlocked  UserChannelBlocked[]
   userChannelFollowed UserChannelFollowed[]
@@ -201,7 +200,7 @@ model UserAccount {
   displayName       String?   @db.VarChar(255)
   userName          String?   @db.VarChar(255)
   created           DateTime? @default(now()) @db.Timestamptz(0)
-  modified          DateTime? @default(now()) @db.Timestamptz(0)
+  modified          DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -242,7 +241,7 @@ model UserFeedLiked {
   userId   String
   feedId   String
   created  DateTime? @default(now()) @db.Timestamptz(0)
-  modified DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
   feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeedLike_feed_id_fk")
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, map: "userFeedLike_user_id_fk")
 
@@ -257,7 +256,7 @@ model UserFeedSaved {
   userId   String
   feedId   String
   created  DateTime? @default(now()) @db.Timestamptz(0)
-  modified DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
   feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeed_feed_id_fk")
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "userFeed_user_id_fk")
 
@@ -272,7 +271,7 @@ model UserFeedViewed {
   userId   String
   feedId   String
   created  DateTime? @default(now()) @db.Timestamptz(0)
-  modified DateTime? @default(now()) @db.Timestamptz(0)
+  modified DateTime? @default(now()) @db.Timestamptz(0) @updatedAt
   feed     Feed      @relation(fields: [feedId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "userFeedView_feed_id_fk")
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "userFeedView_user_id_fk")
 
