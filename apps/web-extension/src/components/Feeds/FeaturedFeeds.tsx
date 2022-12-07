@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Feed } from '../../types/GeneratedTypes';
-import { Box, Flex, Heading, Text } from '../Elements';
-import { feedCard, imageWrapper } from './EditorsChoiceFeeds.css';
+import { Box, Flex, Heading, Text } from '../../ui';
+import { FeedCard } from '../FeedCard/FeedCard';
+import { titleLine } from '../FeedList/FeedsList.css';
+import { feedCard, imageWrapper } from '../FeedsHero/FeedsHero.css';
 import { grid } from './FeaturedFeeds.css';
-import { FeedCard } from './FeedCard';
-import { titleLine } from './FeedsList.css';
 
 interface FeaturedFeedsProps {
 	feeds: Feed[];

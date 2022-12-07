@@ -1,20 +1,22 @@
 import { style } from '@vanilla-extract/css';
 
 export const footer = style({
-	backgroundColor: 'rgba(255,255,255,.9)',
-	bottom: 0,
+	alignItems: 'center',
+	backdropFilter: 'blur(10px)',
+	background: 'rgba(30,30,30,.85)',
+	borderRadius: 16,
+	bottom: 96,
 	display: 'flex',
-	gap: '24px',
-	justifyContent: 'center',
-	left: '260px',
-	padding: '16px 24px',
+	gap: 12,
+	left: '50%',
+	padding: '8px',
 	position: 'fixed',
-	width: 'calc(100% - 356px)',
+	transform: 'translate(-50%,0)',
 
-	'@media': {
-		'(prefers-color-scheme: dark)': {
-			backgroundColor: '#181818',
-			color: '#181818',
-		},
-	},
+	// '@media': {
+	// 	'(prefers-color-scheme: dark)': {
+	// 		backgroundColor: '#181818',
+	// 		color: '#181818',
+	// 	},
+	// },
 });

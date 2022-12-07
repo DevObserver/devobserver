@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import { Flex } from '../Elements';
-import { ViewLayout } from '../Layouts/ViewLayout';
+import { ViewLayout } from '../../layouts/ViewLayout';
+import { Flex } from '../../ui';
 import { animatedText } from './Loader.css';
 
 interface AnimatedTextProps {

@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 
 import { User } from '../../types/GeneratedTypes';
-import { signOut } from '../../utils/sign-out';
-import { Button, Flex, Text } from '../Elements';
-import { divider, userDropdown } from './UserDropdown.css';
+import { RouterLink } from '../../ui/RouterLink';
+import { NavUserDropdown } from '../NavUserDropdown/NavUserDropdown';
+import { signInButton, userButton, userButtonContainer, userImage } from './UserDropdown.css';
 
-interface UserDropdownProps {
-	user: User;
+interface UserDropdown {
+	user?: User;
 }
 
-export const UserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
+export const UserDropdown: FC<UserDropdown> = ({ user }) => {
+	const [isVisible, setVisibility] = useState(false);
+
+	const openDropdown = () => setVisibility(!isVisible);
+	const closeDropdown = () => {
+		setTimeout(() => {
+			setVisibility(false);
+		}, 100);
+	};
+
 	return (
-		<div className={userDropdown}>
-			<Flex as="ul" flexDirection="column" gap={4}>
-				<Flex as="li" flexDirection="column" gap={2}>
-					<Text>{user.name}</Text>
-					<Text opacity={0.4}>{user.email}</Text>
-				</Flex>
-				<li>
-					<div className={divider}></div>
-				</li>
-				<li>
-					<Button variant="ghost" onClick={signOut}>
-						Sign out
-					</Button>
-				</li>
-			</Flex>
+		<div>
+			{user ? (
+				<div className={userButtonContainer}>
+					<button className={userButton} onClick={openDropdown} onBlur={closeDropdown}>
+						{user.image && <img src={user.image} className={userImage} alt="Profile image" />}
+					</button>
+					{isVisible && <NavUserDropdown user={user} />}
+				</div>
+			) : (
+				<RouterLink to="/sign-in" className={signInButton}>
+					<span>Sign In</span>
+				</RouterLink>
+			)}
 		</div>
 	);
 };

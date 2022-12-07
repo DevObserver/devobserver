@@ -1,62 +1,35 @@
 import { style } from '@vanilla-extract/css';
-import { recipe } from '@vanilla-extract/recipes';
 
-export const header = recipe({
-	base: {
-		display: 'grid',
-		gap: '48px',
-		gridTemplateRows: '1fr auto 32px',
+export const header = style({
+	left: 0,
+	position: 'fixed',
+	top: 0,
+	transition: 'width .2s ease',
+	width: '100%',
+	zIndex: 100,
+
+	'::before': {
+		backdropFilter: 'blur(10px)',
+		background: 'rgba(24,24,24,.85)',
+		content: '',
+		display: 'block',
 		height: '100%',
 		left: 0,
-		padding: '32px',
-		position: 'fixed',
+		position: 'absolute',
 		top: 0,
-		transition: 'width .2s ease',
-		width: '96px',
-		zIndex: 100,
-
-		'@media': {
-			'screen and (min-width: 1920px)': {
-				padding: '32px 56px',
-				width: '320px',
-			},
-		},
-	},
-	variants: {
-		state: {
-			opened: {
-				width: '240px',
-
-				'@media': {
-					'screen and (min-width: 1920px)': {
-						width: '320px',
-					},
-				},
-			},
-			closed: {
-				width: '96px',
-
-				'@media': {
-					'screen and (min-width: 1920px)': {
-						width: '144px',
-					},
-				},
-			},
-		},
-	},
-	defaultVariants: {
-		state: 'opened',
+		width: '100%',
+		zIndex: -1,
 	},
 });
 
-export const row = style({
-	display: 'flex',
-	flexDirection: 'column',
+export const grid = style({
+	alignItems: 'center',
+	display: 'grid',
 	gap: '48px',
+	gridTemplateColumns: '48px 1fr',
+});
 
-	selectors: {
-		'&:last-of-type': {
-			justifyContent: 'flex-end',
-		},
-	},
+export const logo = style({
+	alignItems: 'center',
+	display: 'flex',
 });

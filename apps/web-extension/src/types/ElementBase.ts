@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { vars } from '../theme.css';
+import { vars } from '../styles/theme.css';
 import { mediaQueryNames } from './MediaQueries';
 
 export type ResponsiveSpace = {
@@ -12,14 +12,20 @@ export type ResponsiveDisplay = {
 };
 
 export enum elementSpacePropsList {
+	margin = 'margin',
 	mt = 'mt',
 	mr = 'mr',
 	mb = 'mb',
 	ml = 'ml',
+	mx = 'mx',
+	my = 'my',
+	padding = 'padding',
 	pt = 'pt',
 	pr = 'pr',
 	pb = 'pb',
 	pl = 'pl',
+	px = 'px',
+	py = 'py',
 }
 
 export type ElementSpaceProps = {

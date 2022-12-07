@@ -1,14 +1,14 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 
+import { GET_CHANNELS } from '../api/authenticated/operations/get-channels';
+import { SAVE_CHANNELS } from '../api/authenticated/operations/save-channels';
 import { ChannelsList } from '../components/Channels/ChannelsList';
-import { Button, Flex, Heading } from '../components/Elements';
-import { titleLine } from '../components/Feeds/FeedsList.css';
-import { ViewLayout } from '../components/Layouts/ViewLayout';
+import { heading, titleLine } from '../components/FeedList/FeedsList.css';
 import { Loader } from '../components/Loader/Loader';
-import { GET_CHANNELS } from '../graphql/queries/get-channels';
-import { SAVE_CHANNELS } from '../graphql/queries/save-channels';
+import { ViewLayout } from '../layouts/ViewLayout';
 import { Channel } from '../types/GeneratedTypes';
+import { Button, Flex, Heading } from '../ui';
 import { footer } from './Channels.css';
 
 interface ChannelsData {
@@ -92,10 +92,9 @@ export const Channels = () => {
 		<ViewLayout>
 			<Flex alignItems="center" justifyContent="space-between" gap={24}>
 				<Flex alignItems="center" gap={24}>
-					<Heading as="h3" variant="h3">
+					<Heading variant="h1" as="h1" className={heading}>
 						Channels
 					</Heading>
-					<div className={titleLine}></div>
 				</Flex>
 
 				<Flex as="ul" alignItems="center" gap={12}>

@@ -1,4 +1,4 @@
-import { alignItems, flexDirection } from '../theme.css';
+import { alignItems, flexDirection } from '../styles/theme.css';
 import { mediaQueryNames } from './MediaQueries';
 
 export type AlignItems = {

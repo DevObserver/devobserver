@@ -4,7 +4,7 @@ import { config } from '../../../config';
 import { ReactComponent as CheckmarkIcon } from '../../assets/checkmark.svg';
 import { ReactComponent as PlusIcon } from '../../assets/plus.svg';
 import { Channel } from '../../types/GeneratedTypes';
-import { Box, Flex, Heading, Text } from '../Elements';
+import { Box, Flex, Heading, Text } from '../../ui';
 import { card, image, imageWrapper } from './Channels.css';
 
 interface ChannelCard {

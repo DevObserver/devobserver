@@ -2,10 +2,10 @@ import { useQuery } from '@apollo/client';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { FeedsList } from '../components/Feeds/FeedsList';
-import { ViewLayout } from '../components/Layouts/ViewLayout';
+import { GET_CHANNEL } from '../api/authenticated/operations/get-channel';
+import { FeedsList } from '../components/FeedList/FeedsList';
 import { Loader } from '../components/Loader/Loader';
-import { GET_CHANNEL } from '../graphql/queries/get-channel';
+import { ViewLayout } from '../layouts/ViewLayout';
 import { Channel as ChannelType, Feed } from '../types/GeneratedTypes';
 
 interface ChannelData {
@@ -21,7 +21,7 @@ export const Channel = () => {
 	}
 
 	const { loading, data } = useQuery<ChannelData>(GET_CHANNEL, {
-		variables: { channelId: parseInt(id) },
+		variables: { channelId: id },
 	});
 
 	if (loading) {

@@ -7,10 +7,11 @@ export const grid = style({
 });
 
 export const card = style({
-	backgroundColor: 'rgba(0,0,0,.04)',
+	backgroundColor: '#222',
 	border: 'none',
-	cursor: 'pointer',
+	borderRadius: '16px',
 	color: 'currentColor',
+	cursor: 'pointer',
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '24px',
