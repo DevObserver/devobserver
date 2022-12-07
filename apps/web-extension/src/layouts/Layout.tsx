@@ -15,9 +15,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
 		<>
 			<Header />
-			<Box>
-				<p>a</p>
-			</Box>
 			<main className={`${main({ state: pathname === '/' ? 'noPadding' : 'withPadding' })}`}>
 				<Container>{children}</Container>
 			</main>
