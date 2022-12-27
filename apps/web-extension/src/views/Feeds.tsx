@@ -1,8 +1,8 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 
-import { FeedsList } from '../components/FeedList/FeedsList';
-import { Loader } from '../components/Loader/Loader';
+import { FeedsList } from '../components/FeedsList';
+import { Loader } from '../components/Loader';
 import { useFeeds } from '../hooks/useFeeds';
 import { ViewLayout } from '../layouts/ViewLayout';
 

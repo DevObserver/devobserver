@@ -18,7 +18,7 @@ export const PublicFeedsQuery = gql`
 			...FeedPublicFragment
 		}
 
-		feeds: feeds(filter: { where: { category: { name: "Programming" } }, take: 120 }) {
+		feeds: feeds(filter: { where: { category: { name: "Programming" } }, take: 72 }) {
 			...FeedPublicFragment
 		}
 	}

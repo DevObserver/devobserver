@@ -3,10 +3,9 @@ import React from 'react';
 import { ReactComponent as Github } from '../assets/social/github.svg';
 import { ReactComponent as Google } from '../assets/social/google.svg';
 import { ReactComponent as Twitter } from '../assets/social/twitter.svg';
-import { Button, Flex, Heading, Text } from '../ui';
+import { Button, Heading, Text, VStack } from '../ui';
 import { NativeLink } from '../ui/NativeLink';
 import { signIn } from '../utils/sign-in';
-import { container, content, footer, footerLink, list } from './SignIn.css';
 
 const providers = [
 	{
@@ -25,22 +24,22 @@ const providers = [
 
 export const SignIn = () => {
 	return (
-		<div className={container}>
-			<div className={content}>
-				<Flex flexDirection="column" gap={24}>
+		<VStack className="min-h-680 w-full" alignItems="center" justifyContent="center">
+			<VStack className="gap-24 max-w-480">
+				<VStack className="gap-24">
 					<Heading as="h1" align="center">
 						Sign In
 					</Heading>
 					<Heading as="h3" variant="h5" align="center">
 						Stay tuned with the latest developer news, articles, tutorials, releases, fun and much more.
 					</Heading>
-				</Flex>
+				</VStack>
 
-				<ul className={list}>
+				<VStack as="ul" className="gap-12" alignItems="center">
 					{providers.map((provider) => {
 						return (
 							<li key={provider.id}>
-								<Button variant="secondary" onClick={() => signIn(provider.id)}>
+								<Button intent="secondary" onClick={() => signIn(provider.id)}>
 									{provider.icon}
 									<span>
 										Sign in with <span style={{ textTransform: 'capitalize' }}>{provider.id}</span>
@@ -49,14 +48,14 @@ export const SignIn = () => {
 							</li>
 						);
 					})}
-				</ul>
-			</div>
+				</VStack>
+			</VStack>
 
-			<div className={footer}>
+			<div className="absolute bottom-0 left-1/2 p-24 -translate-x-1/2">
 				<Text align="center">
 					By signing in You accept DevObserver's <br />
 					<NativeLink
-						className={footerLink}
+						className="underline hover:no-underline"
 						href="https://devobserver.com/terms-of-use"
 						target="_blank"
 						rel="noreferrer">
@@ -64,7 +63,7 @@ export const SignIn = () => {
 					</NativeLink>{' '}
 					and{' '}
 					<NativeLink
-						className={footerLink}
+						className="underline hover:no-underline"
 						href="https://devobserver.com/privacy policy"
 						target="_blank"
 						rel="noreferrer">
@@ -73,6 +72,6 @@ export const SignIn = () => {
 					.
 				</Text>
 			</div>
-		</div>
+		</VStack>
 	);
 };

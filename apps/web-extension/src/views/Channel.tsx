@@ -3,8 +3,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { GET_CHANNEL } from '../api/authenticated/operations/get-channel';
-import { FeedsList } from '../components/FeedList/FeedsList';
-import { Loader } from '../components/Loader/Loader';
+import { FeedsList } from '../components/FeedsList';
+import { Loader } from '../components/Loader';
 import { ViewLayout } from '../layouts/ViewLayout';
 import { Channel as ChannelType, Feed } from '../types/GeneratedTypes';
 

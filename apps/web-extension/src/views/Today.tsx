@@ -1,13 +1,11 @@
-import { gql, useApolloClient } from '@apollo/client';
 import React, { FC } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 
-import { FeedsList } from '../components/FeedList/FeedsList';
-import { FeedsHero } from '../components/FeedsHero/FeedsHero';
-import { Loader } from '../components/Loader/Loader';
+import { FeedsHero } from '../components/FeedsHero';
+import { FeedsList } from '../components/FeedsList';
+import { Loader } from '../components/Loader';
 import { useFeeds } from '../hooks/useFeeds';
-import { Category, Feed } from '../types/GeneratedTypes';
-import { Flex } from '../ui';
+import { Feed } from '../types/GeneratedTypes';
 
 interface TodayProps {
 	feedsEditorsChoice: Feed[];
@@ -31,7 +29,7 @@ export const Today: FC<TodayProps> = ({ feedsEditorsChoice, feedsFeatured }) => 
 
 	return (
 		<InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
-			<Flex flexDirection="column" gap={48}>
+			<div className="flex flex-col gap-96">
 				<FeedsHero editorsChoiceFeeds={feedsEditorsChoice} featuredFeeds={feedsFeatured} />
 
 				<FeedsList
@@ -40,7 +38,7 @@ export const Today: FC<TodayProps> = ({ feedsEditorsChoice, feedsFeatured }) => 
 					feeds={data.feeds}
 					toggleFeed={toggleFeed}
 				/>
-			</Flex>
+			</div>
 		</InfiniteScroll>
 	);
 };

@@ -3,17 +3,28 @@ import React, { useState } from 'react';
 
 import { GET_CHANNELS } from '../api/authenticated/operations/get-channels';
 import { SAVE_CHANNELS } from '../api/authenticated/operations/save-channels';
-import { ChannelsList } from '../components/Channels/ChannelsList';
-import { heading, titleLine } from '../components/FeedList/FeedsList.css';
-import { Loader } from '../components/Loader/Loader';
+import { ChannelsList } from '../components/ChannelsList';
+import { Loader } from '../components/Loader';
+import { SectionHeader } from '../components/SectionHeader';
 import { ViewLayout } from '../layouts/ViewLayout';
 import { Channel } from '../types/GeneratedTypes';
-import { Button, Flex, Heading } from '../ui';
-import { footer } from './Channels.css';
+import { Button, HStack } from '../ui';
 
 interface ChannelsData {
 	channels: Channel[];
 }
+
+const tabs = [
+	{
+		name: 'Programming',
+	},
+	{
+		name: 'Releases',
+	},
+	{
+		name: 'Tech',
+	},
+];
 
 export const Channels = () => {
 	const { loading, error, data, client, refetch } = useQuery<ChannelsData>(GET_CHANNELS);
@@ -90,40 +101,33 @@ export const Channels = () => {
 
 	return (
 		<ViewLayout>
-			<Flex alignItems="center" justifyContent="space-between" gap={24}>
-				<Flex alignItems="center" gap={24}>
-					<Heading variant="h1" as="h1" className={heading}>
-						Channels
-					</Heading>
-				</Flex>
+			<SectionHeader title="Channels">
+				<HStack as="ul" alignItems="center" className="gap-12">
+					{tabs.map((tab) => {
+						return (
+							<li key={tab.name}>
+								<Button
+									intent="ghost"
+									onClick={() => onCategoryChange(tab.name)}
+									className={currentCategory === tab.name ? 'bg-gray-100' : ''}>
+									{tab.name}
+								</Button>
+							</li>
+						);
+					})}
+				</HStack>
+			</SectionHeader>
 
-				<Flex as="ul" alignItems="center" gap={12}>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Programming')}>
-							programming
-						</Button>
-					</li>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Releases')}>
-							releases
-						</Button>
-					</li>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Tech')}>
-							tech
-						</Button>
-					</li>
-				</Flex>
-			</Flex>
-			<div>
-				<ChannelsList channels={filteredChannels} toggleChannel={toggleChannel} />
-			</div>
+			<ChannelsList channels={filteredChannels} toggleChannel={toggleChannel} />
+
 			{channelsChanged ? (
-				<div className={footer}>
-					<Button variant="primary" onClick={saveChanges}>
+				<div
+					className="flex items-center fixed bottom-96 left-1/2 -translate-x-1/2 p-8 gap-12 rounded-16 backdrop-blur"
+					style={{ backgroundColor: 'rgba(30,30,30,.85)' }}>
+					<Button intent="primary" onClick={saveChanges}>
 						Save
 					</Button>
-					<Button variant="secondary" onClick={cancelChange}>
+					<Button intent="secondary" onClick={cancelChange}>
 						Cancel
 					</Button>
 				</div>

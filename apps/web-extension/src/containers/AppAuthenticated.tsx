@@ -90,7 +90,7 @@ export const AppAuthenticated = () => {
 	}
 
 	return (
-		<Layout>
+		<Layout user={data.user}>
 			<Routes>
 				<Route
 					path="/"

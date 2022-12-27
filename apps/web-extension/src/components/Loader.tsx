@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import { ViewLayout } from '../../layouts/ViewLayout';
-import { Flex } from '../../ui';
-import { animatedText } from './Loader.css';
+import { ViewLayout } from '../layouts/ViewLayout';
+import { HStack } from '../ui';
 
 interface AnimatedTextProps {
 	children: ReactNode;
@@ -15,7 +14,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ children, delay }) => {
 	};
 
 	return (
-		<p className={animatedText} style={style}>
+		<p className="" style={style}>
 			{children}
 		</p>
 	);
@@ -29,12 +28,12 @@ export const Loader: React.FC<LoaderProps> = ({ title }) => {
 	return (
 		<ViewLayout>
 			<div>
-				<Flex gap={4}>
+				<HStack className="gap-4" alignItems="center">
 					<AnimatedText delay=".1s">
 						<b>DevObserver:~</b>
 					</AnimatedText>
 					<AnimatedText delay=".2s">do ls {title}</AnimatedText>
-				</Flex>
+				</HStack>
 				<AnimatedText delay=".3s">Connecting to the DevObserver Backend API...</AnimatedText>
 				<AnimatedText delay=".4s">Connection successful!</AnimatedText>
 				<AnimatedText delay=".6s">Authenticating request...</AnimatedText>

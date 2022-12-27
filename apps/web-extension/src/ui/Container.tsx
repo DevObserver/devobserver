@@ -1,8 +1,5 @@
 import React, { FC } from 'react';
 
-import { Box } from './Box';
-import { container } from './Container.css';
-
 interface ContainerProps {
 	children: React.ReactNode;
 	className?: string;
@@ -10,10 +7,8 @@ interface ContainerProps {
 
 export const Container: FC<ContainerProps> = ({ className, children }) => {
 	return (
-		<Box
-			px={{ mobile: 12, mobileLarge: 16, tablet: 24, desktop: 96 }}
-			className={`${className || ''} ${container}`}>
+		<div className={`px-12 xs:px-16 md:px-24 lg:px-96 max-w-1960 mx-auto w-full ${className || ''}`}>
 			{children}
-		</Box>
+		</div>
 	);
 };

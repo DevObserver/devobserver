@@ -1,21 +1,19 @@
 import React, { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
 
-import { Header } from '../components/Header/Header';
-import { Box } from '../ui';
+import { Header } from '../components/Header';
+import { User } from '../types/GeneratedTypes';
 import { Container } from '../ui/Container';
-import { main } from './Layout.css';
 
 interface LayoutProps {
 	children: ReactNode;
+	user?: User;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
-	const { pathname } = useLocation();
+export const Layout: React.FC<LayoutProps> = ({ children, user }) => {
 	return (
 		<>
-			<Header />
-			<main className={`${main({ state: pathname === '/' ? 'noPadding' : 'withPadding' })}`}>
+			<Header user={user} />
+			<main className="relative pt-12 grow">
 				<Container>{children}</Container>
 			</main>
 		</>
