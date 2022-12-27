@@ -37,7 +37,7 @@ export const UserDropdown: FC<UserDropdown> = ({ user }) => {
 						return (
 							<li key={item.href}>
 								<a
-									className={button({ intent: 'ghost', size: 'small' })}
+									className={button({ intent: 'secondary', size: 'small', state: 'default' })}
 									href={item.href}
 									target="_blank"
 									rel="noreferrer">

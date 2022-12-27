@@ -107,9 +107,10 @@ export const Channels = () => {
 						return (
 							<li key={tab.name}>
 								<Button
-									intent="ghost"
-									onClick={() => onCategoryChange(tab.name)}
-									className={currentCategory === tab.name ? 'bg-gray-100' : ''}>
+									intent="secondary"
+									state={currentCategory === tab.name ? 'active' : 'default'}
+									size="small"
+									onClick={() => onCategoryChange(tab.name)}>
 									{tab.name}
 								</Button>
 							</li>
@@ -121,10 +122,8 @@ export const Channels = () => {
 			<ChannelsList channels={filteredChannels} toggleChannel={toggleChannel} />
 
 			{channelsChanged ? (
-				<div
-					className="flex items-center fixed bottom-96 left-1/2 -translate-x-1/2 p-8 gap-12 rounded-16 backdrop-blur"
-					style={{ backgroundColor: 'rgba(30,30,30,.85)' }}>
-					<Button intent="primary" onClick={saveChanges}>
+				<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 flex items-center fixed bottom-96 left-1/2 -translate-x-1/2 p-8 gap-12 rounded-16 backdrop-blur">
+					<Button intent="primary" state="active" onClick={saveChanges}>
 						Save
 					</Button>
 					<Button intent="secondary" onClick={cancelChange}>

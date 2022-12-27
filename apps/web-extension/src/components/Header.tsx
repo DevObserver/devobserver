@@ -20,7 +20,7 @@ export const Header: FC<HeaderProps> = ({ user }) => {
 
 	return (
 		<HStack as="header" className="left-0 top-0 sticky width-full z-100 py-16 md:py-24">
-			<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur absolute top-0 left-0 h-full w-full"></div>
+			<div className="bg-translucent-white-1000 dark:bg-translucent-gray-1000 backdrop-blur absolute top-0 left-0 h-full w-full"></div>
 			<Container className="grid grid-cols-[48px_1fr] gap-48 relative">
 				<Link className="flex items-center" to="/">
 					<Logo />

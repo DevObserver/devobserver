@@ -39,7 +39,7 @@ export const SignIn = () => {
 					{providers.map((provider) => {
 						return (
 							<li key={provider.id}>
-								<Button intent="secondary" onClick={() => signIn(provider.id)}>
+								<Button intent="primary" state="active" onClick={() => signIn(provider.id)}>
 									{provider.icon}
 									<span>
 										Sign in with <span style={{ textTransform: 'capitalize' }}>{provider.id}</span>

@@ -1,11 +1,12 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import React from 'react';
 
-const heading = cva(['font-800'], {
+const heading = cva([], {
 	variants: {
 		variant: {
-			h1: ['leading-1', 'text-28', 'md:text-32', 'lg:text-72', 'xl:text-120', '3xl:text-120'],
+			h1: ['font-800', 'leading-1', 'text-28', 'md:text-32', 'lg:text-72', 'xl:text-120', '3xl:text-120'],
 			h2: [
+				'font-700',
 				'text-24',
 				'leading-32',
 				'md:text-28',
@@ -18,6 +19,7 @@ const heading = cva(['font-800'], {
 				'3xl:leading-56',
 			],
 			h3: [
+				'font-700',
 				'text-20',
 				'leading-28',
 				'md:text-24',
@@ -30,6 +32,7 @@ const heading = cva(['font-800'], {
 				'3xl:leading-48',
 			],
 			h4: [
+				'font-700',
 				'text-18',
 				'leading-24',
 				'md:text-20',
@@ -42,6 +45,7 @@ const heading = cva(['font-800'], {
 				'3xl:leading-40',
 			],
 			h5: [
+				'font-700',
 				'text-16',
 				'leading-24',
 				'md:text-18',
@@ -54,6 +58,7 @@ const heading = cva(['font-800'], {
 				'3xl:leading-32',
 			],
 			h6: [
+				'font-700',
 				'text-14',
 				'leading-20',
 				'md:text-16',

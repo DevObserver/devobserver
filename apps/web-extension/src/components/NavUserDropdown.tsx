@@ -13,7 +13,9 @@ interface UserDropdownProps {
 
 export const NavUserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
 	return (
-		<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur text-current translate-x-24 right-0 absolute px-12 py-16 min-w-[240px] rounded-16 z-100">
+		<div
+			className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur text-current translate-y-36 right-0 absolute px-12 py-16 min-w-[240px] rounded-16 z-100"
+			style={{ boxShadow: '0 24px 36px -36px rgba(0,0,0,.4)' }}>
 			<VStack as="ul">
 				<VStack as="li" className="gap-2 px-12">
 					<Text>{user.name}</Text>
@@ -28,7 +30,7 @@ export const NavUserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
 					return (
 						<li key={item.href}>
 							<a
-								className={button({ intent: 'ghost', size: 'small' })}
+								className={button({ intent: 'secondary', size: 'small' })}
 								href={item.href}
 								target="_blank"
 								rel="noreferrer">
@@ -46,7 +48,7 @@ export const NavUserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
 					return (
 						<li key={item.href}>
 							<a
-								className={button({ intent: 'ghost', size: 'small' })}
+								className={button({ intent: 'secondary', size: 'small' })}
 								href={item.href}
 								target="_blank"
 								rel="noreferrer">
@@ -62,7 +64,7 @@ export const NavUserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
 					</HStack>
 				</li>
 				<li>
-					<button className={`${button({ intent: 'ghost', size: 'small' })} w-full`} onClick={signOut}>
+					<button className={`${button({ intent: 'secondary', size: 'small' })} w-full`} onClick={signOut}>
 						Sign out
 					</button>
 				</li>
