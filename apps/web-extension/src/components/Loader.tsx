@@ -11,10 +11,11 @@ interface AnimatedTextProps {
 const AnimatedText: React.FC<AnimatedTextProps> = ({ children, delay }) => {
 	const style = {
 		animationDelay: delay,
+		fontFamily: 'monospace',
 	};
 
 	return (
-		<p className="" style={style}>
+		<p className="animate-fade-in opacity-0" style={style}>
 			{children}
 		</p>
 	);

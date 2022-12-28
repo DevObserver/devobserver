@@ -13,12 +13,10 @@ interface UserDropdownProps {
 
 export const NavUserDropdown: React.FC<UserDropdownProps> = ({ user }) => {
 	return (
-		<div
-			className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur text-current translate-y-36 right-0 absolute px-12 py-16 min-w-[240px] rounded-16 z-100"
-			style={{ boxShadow: '0 24px 36px -36px rgba(0,0,0,.4)' }}>
+		<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur text-current translate-y-24 right-0 absolute p-8 min-w-[240px] rounded-16 z-100">
 			<VStack as="ul">
-				<VStack as="li" className="gap-2 px-12">
-					<Text>{user.name}</Text>
+				<VStack as="li" className="gap-2 px-12 pt-8">
+					<Text className="font-800">{user.name}</Text>
 					{user.accounts && <Text className="opacity-40">via {user.accounts[0]!.provider!}</Text>}
 				</VStack>
 				<li>

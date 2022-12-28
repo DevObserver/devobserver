@@ -370,7 +370,15 @@ module.exports = {
 			DEFAULT: "100%",
 			0: "0"
 		},
-		keyframes: {},
+		animation: {
+			'fade-in': 'fade-in .1s forwards'
+		},
+		keyframes: {
+			'fade-in': {
+				'0%': { opacity: 0 },
+				'100%': { opacity: 1 },
+			}
+		},
 		letterSpacing: {},
 		lineHeight: {
 			1: "1",
