@@ -4,7 +4,7 @@ import React from 'react';
 
 import { config } from '../../config';
 import { Feed } from '../types/GeneratedTypes';
-import { Heading, HStack, Text, VStack } from '../ui';
+import { Avatar, Heading, HStack, Text, VStack } from '../ui';
 import { NativeLink } from '../ui/NativeLink';
 import { RouterLink } from '../ui/RouterLink';
 
@@ -46,12 +46,20 @@ export const FeedCardHero: React.FC<FeedCardSmallProps> = ({ feed, variant = 'sm
 					/>
 				</VStack>
 			</NativeLink>
-			<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur absolute bottom-0 left-0 w-full p-24">
+			<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur absolute bottom-0 left-0 w-full p-24 z-10">
 				<VStack className="gap-12">
-					<VStack className="gap-4">
-						<RouterLink title={feed.channel.name} to={`/channels/${feed.channel.id}`}>
-							{feed.channel.name}
-						</RouterLink>
+					<VStack className="gap-12">
+						<HStack className="items-center gap-12">
+							<RouterLink
+								title={feed.channel.name}
+								to={`/channel/${feed.channel.id}`}
+								className="opacity-60 hover:opacity-100 transition-all">
+								<HStack className="items-center gap-12">
+									<Avatar src={`${config.assetsUrl}${feed.channel.image}`} alt={feed.channel.name} />
+									<span>{feed.channel.name}</span>
+								</HStack>
+							</RouterLink>
+						</HStack>
 
 						<Heading as="h3" variant={headingVariant()}>
 							<NativeLink href={url} rel="noopener" target="_blank">

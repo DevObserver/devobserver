@@ -39,7 +39,7 @@ export const FeedCard: React.FC<FeedCardSmallProps> = ({ feed, variant = 'small'
 
 	return (
 		<VStack
-			className={`bg-gray-50 dark:bg-gray-930 rounded-16 overflow-hidden transition-all ${
+			className={`bg-gray-50 dark:bg-gray-930 rounded-16 overflow-hidden transition-all hover:-translate-y-4 ${
 				feed.viewed ? 'opacity-60 hover:opacity-100' : ''
 			} ${className}`}>
 			<Image href={url} target="_blank" src={`${config.assetsUrl}${feed.image}`} alt="Feed image" />
