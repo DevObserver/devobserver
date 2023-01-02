@@ -15,7 +15,7 @@ export const button = cva(
 					'dark:text-gray-1000',
 					'rounded-8',
 				],
-				secondary: ['hover:bg-gray-200', 'dark:hover:bg-gray-900', 'rounded-8'],
+				secondary: ['hover:bg-gray-200', 'dark:hover:bg-gray-900', 'rounded-12'],
 				ghost: [''],
 			},
 			size: {

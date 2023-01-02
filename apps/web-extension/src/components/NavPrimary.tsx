@@ -8,7 +8,7 @@ import { LinksFeed } from '../utils/links-feed';
 
 export const NavPrimary = () => {
 	return (
-		<HStack className="bg-translucent-white-900 dark:bg-translucent-gray-900 rounded-12 backdrop-blur bottom-24 left-1/2 -translate-x-1/2 fixed p-8">
+		<HStack className="bg-translucent-white-900 dark:bg-translucent-gray-900 rounded-16 backdrop-blur bottom-24 left-1/2 -translate-x-1/2 fixed p-8">
 			<HStack as="nav" alignItems="center" justifyContent="center">
 				<HStack as="ul" className="gap-4" alignItems="center" justifyContent="center">
 					{LinksFeed.map((item: MenuLink) => {

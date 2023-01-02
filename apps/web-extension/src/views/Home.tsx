@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { PublicFeedsQuery } from '../api/unauthenticated/operations/public-feeds-query';
 import { FeedsHero } from '../components/FeedsHero';
-// import { FeaturedFeeds } from '../components/Feeds/FeaturedFeeds';
 import { FeedsList } from '../components/FeedsList';
 import { Loader } from '../components/Loader';
 import { ViewLayout } from '../layouts/ViewLayout';

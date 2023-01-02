@@ -67,8 +67,6 @@ const authenticatedRoutes: AuthenticatedRoute[] = [
 	},
 	{ path: '/configure', name: 'Channels', element: <Channels /> },
 	{ path: '/channel/:id', name: 'Channel', element: <Channel /> },
-	// { path: '/search', element: <Channel /> },
-	// { path: '*', name: 'any', element: <Today /> },
 ];
 
 export const AppAuthenticated = () => {

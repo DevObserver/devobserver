@@ -371,7 +371,7 @@ module.exports = {
 			0: "0"
 		},
 		animation: {
-			'fade-in': 'fade-in .1s forwards'
+			'fade-in': 'fade-in .15s forwards'
 		},
 		keyframes: {
 			'fade-in': {
@@ -594,7 +594,7 @@ module.exports = {
 		transformOrigin: {},
 		transitionDelay: {},
 		transitionDuration: {
-			DEFAULT: "150ms",
+			DEFAULT: "250ms",
 			75: "75ms",
 			100: "100ms",
 			150: "150ms",
