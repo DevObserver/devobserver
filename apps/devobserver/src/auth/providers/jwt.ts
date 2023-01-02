@@ -38,7 +38,7 @@ export const jwtAuth = () => {
 					},
 				});
 
-				cb(null, user);
+				cb(null, user || false);
 			} catch {
 				cb(null, false);
 			}

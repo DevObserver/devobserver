@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import gql from 'graphql-tag';
 
 import { award } from '../graphql/award';
 import { category } from '../graphql/category';
@@ -12,15 +12,14 @@ const typeDef = gql`
 	type Mutation
 `;
 
-export const schema = {
-	typeDefs: [
-		typeDef,
-		DateScalar.typeDef,
-		award.typeDef,
-		category.typeDef,
-		channel.typeDef,
-		feed.typeDef,
-		type.typeDef,
-	],
-	resolvers: [DateScalar.resolvers, feed.resolvers],
-};
+export const typeDefs = [
+	typeDef,
+	DateScalar.typeDef,
+	award.typeDef,
+	category.typeDef,
+	channel.typeDef,
+	feed.typeDef,
+	type.typeDef,
+];
+
+export const resolvers = [DateScalar.resolvers, feed.resolvers];

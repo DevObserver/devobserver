@@ -1,5 +1,5 @@
-import { gql } from 'apollo-server';
 import { GraphQLScalarType } from 'graphql';
+import gql from 'graphql-tag';
 
 const dateScalar = new GraphQLScalarType({
 	name: 'Date',

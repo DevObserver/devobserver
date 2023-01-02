@@ -6,5 +6,5 @@ export const connection = {
 	user: REDIS_USER,
 	db: 1,
 	password: REDIS_PASSWORD,
-	tls: {},
+	// tls: {},
 };

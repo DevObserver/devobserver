@@ -38,19 +38,11 @@
     "packages/*"
   ],
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "6.3.0",
-    "turbo": "1.4.3"
+    "turbo": "1.6.3"
   },
   "devDependencies": {
-    "dotenv-checker": "^1.1.5",
-    "prettier": "2.7.1"
-  },
-  "overrides": {
-    "@vanilla-extract/vite-plugin": {
-      "vite": "^3"
-    }
+    "dotenv-checker": "1.1.5",
+    "prettier": "2.8.1"
   },
   "engines": {
     "node": ">=17.x",
