@@ -1,19 +1,30 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 
-import { ChannelsList } from '../components/Channels/ChannelsList';
-import { Button, Flex, Heading } from '../components/Elements';
-import { titleLine } from '../components/Feeds/FeedsList.css';
-import { ViewLayout } from '../components/Layouts/ViewLayout';
-import { Loader } from '../components/Loader/Loader';
-import { GET_CHANNELS } from '../graphql/queries/get-channels';
-import { SAVE_CHANNELS } from '../graphql/queries/save-channels';
+import { GET_CHANNELS } from '../api/authenticated/operations/get-channels';
+import { SAVE_CHANNELS } from '../api/authenticated/operations/save-channels';
+import { ChannelsList } from '../components/ChannelsList';
+import { Loader } from '../components/Loader';
+import { SectionHeader } from '../components/SectionHeader';
+import { ViewLayout } from '../layouts/ViewLayout';
 import { Channel } from '../types/GeneratedTypes';
-import { footer } from './Channels.css';
+import { Button, HStack } from '../ui';
 
 interface ChannelsData {
 	channels: Channel[];
 }
+
+const tabs = [
+	{
+		name: 'Programming',
+	},
+	{
+		name: 'Releases',
+	},
+	{
+		name: 'Tech',
+	},
+];
 
 export const Channels = () => {
 	const { loading, error, data, client, refetch } = useQuery<ChannelsData>(GET_CHANNELS);
@@ -90,41 +101,32 @@ export const Channels = () => {
 
 	return (
 		<ViewLayout>
-			<Flex alignItems="center" justifyContent="space-between" gap={24}>
-				<Flex alignItems="center" gap={24}>
-					<Heading as="h3" variant="h3">
-						Channels
-					</Heading>
-					<div className={titleLine}></div>
-				</Flex>
+			<SectionHeader title="Channels">
+				<HStack as="ul" alignItems="center" className="gap-12">
+					{tabs.map((tab) => {
+						return (
+							<li key={tab.name}>
+								<Button
+									intent="secondary"
+									state={currentCategory === tab.name ? 'active' : 'default'}
+									size="small"
+									onClick={() => onCategoryChange(tab.name)}>
+									{tab.name}
+								</Button>
+							</li>
+						);
+					})}
+				</HStack>
+			</SectionHeader>
 
-				<Flex as="ul" alignItems="center" gap={12}>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Programming')}>
-							programming
-						</Button>
-					</li>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Releases')}>
-							releases
-						</Button>
-					</li>
-					<li>
-						<Button variant="ghost" onClick={() => onCategoryChange('Tech')}>
-							tech
-						</Button>
-					</li>
-				</Flex>
-			</Flex>
-			<div>
-				<ChannelsList channels={filteredChannels} toggleChannel={toggleChannel} />
-			</div>
+			<ChannelsList channels={filteredChannels} toggleChannel={toggleChannel} />
+
 			{channelsChanged ? (
-				<div className={footer}>
-					<Button variant="primary" onClick={saveChanges}>
+				<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 flex items-center fixed bottom-96 left-1/2 -translate-x-1/2 p-8 gap-12 rounded-16 backdrop-blur">
+					<Button intent="primary" state="active" onClick={saveChanges}>
 						Save
 					</Button>
-					<Button variant="secondary" onClick={cancelChange}>
+					<Button intent="secondary" onClick={cancelChange}>
 						Cancel
 					</Button>
 				</div>
