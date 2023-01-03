@@ -2,7 +2,7 @@ import { prisma } from '@devobserver/prisma';
 import passport from 'passport';
 import jwtStrategy, { StrategyOptions } from 'passport-jwt';
 
-import { JWT_ISSUER, JWT_SECRET } from '../../config';
+import { config } from '../../config';
 
 const JwtStrategy = jwtStrategy.Strategy;
 
@@ -24,8 +24,8 @@ const jwtExtractor: any = (req: any) => {
 
 const opts: StrategyOptions = {
 	jwtFromRequest: jwtExtractor,
-	secretOrKey: JWT_SECRET,
-	issuer: JWT_ISSUER,
+	secretOrKey: config.jwtSecret,
+	issuer: config.jwtIssuer,
 };
 
 export const jwtAuth = () => {

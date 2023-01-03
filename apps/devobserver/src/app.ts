@@ -6,7 +6,7 @@ import express from 'express';
 import helmet from 'helmet';
 
 import { auth } from './auth';
-import { MAINTENANCE } from './config';
+import { config } from './config';
 import { graphql } from './graphql';
 import { graphqlPublic } from './graphql-public';
 import { maintenance } from './middlewares/maintenance';
@@ -17,7 +17,7 @@ import { notFound } from './routes/not-found';
 export const app = express();
 export const appNameSpace = 'DevObserver';
 const port = process.env.PORT || 3000;
-const isUnderMaintenance = MAINTENANCE === 'enabled';
+const isUnderMaintenance = config.maintenance === 'enabled';
 
 (async () => {
 	app.use(helmet());

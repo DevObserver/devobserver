@@ -3,7 +3,7 @@ import passport from 'passport';
 import { Profile, Strategy as GoogleStrategy } from 'passport-google-oauth20';
 
 import { app } from '../../app';
-import { GOOGLE } from '../../config';
+import { config } from '../../config';
 import { authCallbackRedirect } from '../helpers/auth-callback-redirect';
 import { getUser } from '../helpers/get-user';
 
@@ -11,9 +11,9 @@ export const googleAuth = () => {
 	passport.use(
 		new GoogleStrategy(
 			{
-				clientID: GOOGLE.GOOGLE_CLIENT_ID,
-				clientSecret: GOOGLE.GOOGLE_CLIENT_SECRET,
-				callbackURL: GOOGLE.GOOGLE_CALLBACK_URL,
+				clientID: config.googleClientId,
+				clientSecret: config.githubClientSecret,
+				callbackURL: config.githubCallbackUrl,
 				scope: ['email', 'profile'],
 			},
 			async (accessToken: string, refreshToken: string, profile: Profile, done: any) => {
@@ -26,7 +26,7 @@ export const googleAuth = () => {
 	app.get('/login/google', (req: Request, res: Response, next: NextFunction) => {
 		const params: any = {
 			scope: ['email', 'profile'],
-			callbackURL: GOOGLE.GOOGLE_CALLBACK_URL,
+			callbackURL: config.githubCallbackUrl,
 			state: JSON.stringify({
 				redirect_uri: req.query.redirect_uri,
 			}),

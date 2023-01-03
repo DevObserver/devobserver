@@ -1,4 +1,4 @@
-import { IOS_CLIENT_APP_REDIRECT_URL } from '../../config';
+import { config } from '../../config';
 import { jwtToken } from './jwt-token';
 import { validateRedirectUrl } from './validate-redirect-url';
 
@@ -33,7 +33,7 @@ export const authCallbackRedirect = (req: any, res: any, next: any) => {
 	if (redirectUrl && validateRedirectUrl(redirectUrl)) {
 		req.redirectUrl = redirectUrl;
 	} else {
-		req.redirectUrl = `${IOS_CLIENT_APP_REDIRECT_URL}=${token}`;
+		req.redirectUrl = `${config.iosClientAppRedirectUrl}=${token}`;
 	}
 
 	res.cookie('accessToken', token, { maxAge: cookieExpirationDate });

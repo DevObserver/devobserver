@@ -4,7 +4,7 @@ import passport from 'passport';
 import AppleStrategy, { Profile } from 'passport-apple';
 
 import { app } from '../../app';
-import { APPLE } from '../../config';
+import { config } from '../../config';
 import { authCallbackRedirect } from '../helpers/auth-callback-redirect';
 import { getCallbackUrl } from '../helpers/get-callback-url';
 import { getUser } from '../helpers/get-user';
@@ -13,11 +13,11 @@ export const appleAuth = () => {
 	passport.use(
 		new AppleStrategy(
 			{
-				clientID: APPLE.APPLE_CLIENT_ID,
-				teamID: APPLE.APPLE_TEAM_ID,
-				keyID: APPLE.APPLE_KEY_ID,
-				callbackURL: APPLE.APPLE_CALLBACK_URL,
-				privateKeyString: APPLE.APPLE_PRIVATE_KEY,
+				clientID: config.appleClientId,
+				teamID: config.appleTeamId,
+				keyID: config.appleKeyId,
+				callbackURL: config.appleCallbackUrl,
+				privateKeyString: config.applePrivateKey,
 				passReqToCallback: true,
 			},
 			async (
@@ -46,7 +46,7 @@ export const appleAuth = () => {
 	app.get('/login/apple', (req: Request, res: Response, next: NextFunction) => {
 		const params: any = {
 			scope: ['email', 'name'],
-			callbackURL: getCallbackUrl(APPLE.APPLE_CALLBACK_URL, req.query.redirect_uri || ''),
+			callbackURL: getCallbackUrl(config.appleCallbackUrl, req.query.redirect_uri || ''),
 			state: JSON.stringify({
 				redirect_uri: req.query.redirect_uri,
 			}),

@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import nodemailer from 'nodemailer';
 import path from 'path';
 
-import { MAIL } from '../../config';
+import { config } from '../../config';
 
 export type WelcomeNotification = {
 	email: string;
@@ -14,8 +14,8 @@ export const welcomeNotification = async ({ email }: WelcomeNotification) => {
 			service: 'gmail',
 			secure: true,
 			auth: {
-				user: MAIL.SMTP_USER,
-				pass: MAIL.SMTP_PASS,
+				user: config.smtpUser,
+				pass: config.smtpPassword,
 			},
 		});
 
@@ -25,7 +25,7 @@ export const welcomeNotification = async ({ email }: WelcomeNotification) => {
 		);
 
 		await transporter.sendMail({
-			from: MAIL.SMTP_SENDER,
+			from: config.smtpFrom,
 			to: email,
 			subject: 'Welcome to DevObserver',
 			text: '',

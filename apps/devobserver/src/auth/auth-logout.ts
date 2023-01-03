@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import passport from 'passport';
 
 import { app } from '../app';
-import { COOKIE_NAME } from '../config';
+import { config } from '../config';
 import { corsOptionsDelegate } from '../routes/routes-guard';
 
 export const authLogout = () => {
@@ -22,7 +22,7 @@ export const authLogout = () => {
 					redirectUrl = req.query.redirect_uri as string;
 				}
 
-				res.clearCookie(COOKIE_NAME);
+				res.clearCookie(config.cookieName);
 				res.clearCookie('accessToken');
 
 				res.redirect(redirectUrl);

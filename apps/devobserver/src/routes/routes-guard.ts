@@ -2,9 +2,9 @@ import cors from 'cors';
 import passport from 'passport';
 
 import { app } from '../app';
-import { ALLOWED_ORIGINS } from '../config';
+import { config } from '../config';
 
-const allowList = ALLOWED_ORIGINS.split(',');
+const allowList = config.allowedOrigins.split(',');
 export const corsOptionsDelegate = (req: any, callback: any) => {
 	let corsOptions;
 	if (allowList.indexOf(req.header('Origin')) !== -1) {
