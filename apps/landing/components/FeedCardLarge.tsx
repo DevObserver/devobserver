@@ -21,7 +21,7 @@ export const FeedCardLarge = ({ feed }: any) => {
 				<Image
 					src={`https://assets.devobserver.com${feed.image}`}
 					height={280}
-					objectFit="cover"
+					style={{ objectFit: 'cover', width: '100%', height: '100%' }}
 					width={640}
 					alt="Feed Image"
 				/>

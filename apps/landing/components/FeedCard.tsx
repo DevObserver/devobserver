@@ -23,7 +23,7 @@ export const FeedCard = ({ feed }: any) => {
 			<x.div display="flex">
 				<Image
 					src={`https://assets.devobserver.com${feed.image}`}
-					objectFit="cover"
+					style={{ objectFit: 'cover', width: '100%', height: '100%' }}
 					height={280}
 					width={640}
 					alt="Feed Image"

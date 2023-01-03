@@ -15,13 +15,20 @@ const Section3 = () => {
 				/>
 
 				<x.div
+					display="flex"
 					mt={{
 						_: '',
 						xl: '-120px',
 						xxl: '-180px',
 					}}
 					mx="auto">
-					<Image src="/images/1.png" alt="" width="1960" height="1470" />
+					<Image
+						src="/images/1.png"
+						alt=""
+						width="1960"
+						height="1470"
+						style={{ maxWidth: '100%', height: 'auto !important', objectFit: 'contain' }}
+					/>
 				</x.div>
 			</Container>
 		</Section>

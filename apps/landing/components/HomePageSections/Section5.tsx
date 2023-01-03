@@ -79,8 +79,14 @@ export const Section5 = () => {
 				/>
 			</Container>
 			<Container position="relative">
-				<x.div position="relative" zIndex={1}>
-					<Image src="/images/3.png" alt="" width="1960" height="1470" />
+				<x.div display="flex" position="relative" zIndex={1}>
+					<Image
+						src="/images/3.png"
+						alt=""
+						width="1960"
+						height="1470"
+						style={{ maxWidth: '100%', height: 'auto !important', objectFit: 'contain' }}
+					/>
 				</x.div>
 				<x.ul
 					display="flex"
@@ -109,7 +115,7 @@ export const Section5 = () => {
 								w={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
 								h={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
 								flexShrink="0">
-								<Image src={image.src} alt="" width={image.width} height={image.height} />
+								<Image src={image.src} alt="" width="480" height="480" />
 							</x.li>
 						);
 					})}

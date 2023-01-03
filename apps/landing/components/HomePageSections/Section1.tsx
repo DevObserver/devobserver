@@ -8,35 +8,25 @@ const linkList = [
 	{
 		name: 'Apple App Store',
 		url: 'https://apps.apple.com/us/app/devobserver/id1575198748',
-		image: '/images/badge-app-store.svg',
-		imageWidth: '120',
-		imageHeight: '40',
+		image: <Image src="/images/badge-app-store.svg" width="120" height="40" alt="" />,
 	},
 	{
 		name: 'Google Play Store',
-		image: '/images/badge-google-play.svg',
-		imageWidth: '136',
-		imageHeight: '40',
+		image: <Image src="/images/badge-google-play.svg" width="136" height="40" alt="" />,
 	},
 	{
 		name: 'Google Chrome Web Store',
 		url: 'https://chrome.google.com/webstore/detail/devobserver/afbaeofnmedcmhdkddlcdfmighhpieib',
-		image: '/images/chrome.svg',
-		imageWidth: '40',
-		imageHeight: '40',
+		image: <Image src="/images/chrome.svg" width="40" height="40" alt="" />,
 	},
 	{
 		name: 'Mac App Store',
-		image: '/images/safari.svg',
-		imageWidth: '40',
-		imageHeight: '40',
+		image: <Image src="/images/safari.svg" width="40" height="40" alt="" />,
 	},
 	{
 		name: 'Firefox Web Store',
 		url: 'https://addons.mozilla.org/en-US/firefox/addon/devobserver/',
-		image: '/images/firefox.svg',
-		imageWidth: '40',
-		imageHeight: '40',
+		image: <Image src="/images/firefox.svg" width="40" height="40" alt="" />,
 	},
 ];
 
@@ -129,22 +119,10 @@ const Section1 = () => {
 									<li key={link.name}>
 										{link.url ? (
 											<a href={link.url} target="_blank" rel="noreferrer">
-												<Image
-													src={link.image}
-													alt={link.name}
-													width={link.imageWidth}
-													height={link.imageHeight}
-												/>
+												{link.image}
 											</a>
 										) : (
-											<x.div opacity={0.2}>
-												<Image
-													src={link.image}
-													alt={link.name}
-													width={link.imageWidth}
-													height={link.imageHeight}
-												/>
-											</x.div>
+											<x.div opacity={0.2}>{link.image}</x.div>
 										)}
 									</li>
 								);

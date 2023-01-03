@@ -15,12 +15,19 @@ export const Section4 = () => {
 					description="DevObserver is also available as a browser extension to make your experience even better."
 				/>
 				<x.div
+					display="flex"
 					mt={{
 						_: '',
 						xl: '-72px',
 						xxl: '-96px',
 					}}>
-					<Image src="/images/2.png" alt="" width="1960" height="1470" />
+					<Image
+						src="/images/2.png"
+						alt=""
+						width="1960"
+						height="1470"
+						style={{ maxWidth: '100%', height: 'auto !important', objectFit: 'contain' }}
+					/>
 				</x.div>
 			</Container>
 		</Section>
