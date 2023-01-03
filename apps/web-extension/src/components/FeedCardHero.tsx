@@ -35,7 +35,9 @@ export const FeedCardHero: React.FC<FeedCardSmallProps> = ({ feed, variant = 'sm
 
 	return (
 		<VStack
-			className={`rounded-16 overflow-hidden transition-all h-full relative ${className ? className : ''}`}>
+			className={`text-white rounded-16 overflow-hidden transition-all h-full relative ${
+				className ? className : ''
+			}`}>
 			<NativeLink href={url} rel="noopener" target="_blank" className="flex h-full">
 				<VStack className="overflow-hidden aspect-[4/3] w-full">
 					<img
@@ -46,7 +48,7 @@ export const FeedCardHero: React.FC<FeedCardSmallProps> = ({ feed, variant = 'sm
 					/>
 				</VStack>
 			</NativeLink>
-			<div className="bg-translucent-white-900 dark:bg-translucent-gray-900 backdrop-blur absolute bottom-0 left-0 w-full p-24 z-10">
+			<div className="bg-[linear-gradient(0deg,_rgba(0,0,0,.8)_0%,_rgba(0,0,0,0)_100%)] absolute bottom-0 left-0 w-full p-24 z-10">
 				<VStack className="gap-12">
 					<VStack className="gap-12">
 						<HStack className="items-center gap-12">
