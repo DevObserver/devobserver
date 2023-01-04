@@ -12,6 +12,7 @@ import { graphqlPublic } from './graphql-public';
 import { maintenance } from './middlewares/maintenance';
 import { closeAllQueues } from './queues';
 import { routes } from './routes';
+import { errorHandler } from './routes/errorHandler';
 import { notFound } from './routes/not-found';
 
 export const app = express();
@@ -31,6 +32,7 @@ const isUnderMaintenance = config.maintenance === 'enabled';
 	routes();
 	await graphqlPublic();
 	await graphql();
+	errorHandler();
 	notFound();
 
 	const server = app.listen(port, () => {

@@ -21,6 +21,7 @@
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:nuke": "docker compose down --volumes --remove-orphans",
+    "lint": "turbo run lint",
     "predev": "dotenv-checker --schema .env.example --env .env"
   },
   "repository": {
