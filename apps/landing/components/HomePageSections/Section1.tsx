@@ -12,6 +12,7 @@ const linkList = [
 	},
 	{
 		name: 'Google Play Store',
+		url: 'https://play.google.com/store/apps/details?id=com.devobserver',
 		image: <Image src="/images/badge-google-play.svg" width="136" height="40" alt="" />,
 	},
 	{
@@ -19,10 +20,10 @@ const linkList = [
 		url: 'https://chrome.google.com/webstore/detail/devobserver/afbaeofnmedcmhdkddlcdfmighhpieib',
 		image: <Image src="/images/chrome.svg" width="40" height="40" alt="" />,
 	},
-	{
-		name: 'Mac App Store',
-		image: <Image src="/images/safari.svg" width="40" height="40" alt="" />,
-	},
+	// {
+	// 	name: 'Mac App Store',
+	// 	image: <Image src="/images/safari.svg" width="40" height="40" alt="" />,
+	// },
 	{
 		name: 'Firefox Web Store',
 		url: 'https://addons.mozilla.org/en-US/firefox/addon/devobserver/',
