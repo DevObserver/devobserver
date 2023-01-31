@@ -115,7 +115,13 @@ export const Section5 = () => {
 								w={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
 								h={{ _: 64, sm: 72, md: 96, lg: 144, xl: 220 }}
 								flexShrink="0">
-								<Image src={image.src} alt="" width="480" height="480" />
+								<Image
+									src={image.src}
+									alt=""
+									width="480"
+									height="480"
+									style={{ objectFit: 'cover', width: '100% !important', height: '100% !important' }}
+								/>
 							</x.li>
 						);
 					})}

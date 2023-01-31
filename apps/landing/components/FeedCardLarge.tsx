@@ -17,11 +17,11 @@ export const FeedCardLarge = ({ feed }: any) => {
 				xl: '33.33%',
 			}}
 			flexShrink={0}>
-			<x.div display="flex">
+			<x.div display="flex" w="100%">
 				<Image
 					src={`https://assets.devobserver.com${feed.image}`}
 					height={280}
-					style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+					style={{ objectFit: 'cover', width: '100% !important', height: '100% !important' }}
 					width={640}
 					alt="Feed Image"
 				/>

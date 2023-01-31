@@ -10,6 +10,8 @@ export const Header = () => {
 			<Container alignItems="center" display="flex">
 				<Link href="/">
 					<x.div
+						display="flex"
+						alignItems="center"
 						h={{
 							_: 24,
 							md: 32,
@@ -20,7 +22,7 @@ export const Header = () => {
 							md: 32,
 							lg: 48,
 						}}>
-						<Image src="/images/do-logo.svg" alt="" width="64" height="64" />
+						<Image src="/images/do-logo.svg" alt="" width="64" height="64" style={{ maxWidth: '100%' }} />
 					</x.div>
 				</Link>
 

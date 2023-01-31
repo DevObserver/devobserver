@@ -20,10 +20,10 @@ export const FeedCard = ({ feed }: any) => {
 			/* w={380}
 			h={226}*/
 			flexShrink={0}>
-			<x.div display="flex">
+			<x.div display="flex" w="100%">
 				<Image
 					src={`https://assets.devobserver.com${feed.image}`}
-					style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+					style={{ objectFit: 'cover', width: '100% !important', height: '100% !important' }}
 					height={280}
 					width={640}
 					alt="Feed Image"

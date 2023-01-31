@@ -24,7 +24,13 @@ export const Footer = () => {
 					<x.div flexGrow={1}>
 						<Link href="/">
 							<x.div h="32" w="32">
-								<Image src="/images/do-logo.svg" alt="" width="64" height="64" />
+								<Image
+									src="/images/do-logo.svg"
+									alt=""
+									width="64"
+									height="64"
+									style={{ maxWidth: '100% !important', maxHeight: '100% !important' }}
+								/>
 							</x.div>
 						</Link>
 					</x.div>
@@ -78,7 +84,13 @@ export const Footer = () => {
 						referrerPolicy="origin"
 						maxWidth="160px"
 						target="_blank">
-						<Image src="/images/simpleanalytics.com.svg" alt="" width="210" height="50" />
+						<Image
+							src="/images/simpleanalytics.com.svg"
+							alt=""
+							width="210"
+							height="50"
+							style={{ maxWidth: '100%' }}
+						/>
 					</x.a>
 				</x.div>
 				<x.div>
