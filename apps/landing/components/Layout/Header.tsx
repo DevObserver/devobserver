@@ -30,22 +30,28 @@ export const Header = () => {
 					<x.ul display="flex" gap={24}>
 						<li>
 							<a href="https://github.com/DevObserver" target="_blank" rel="noreferrer">
-								Github
+								<Image src="/images/github.png" alt="" width="24" height="24" style={{ maxWidth: '100%' }} />
 							</a>
 						</li>
-						<li>
+						{/* <li>
 							<a href="https://ko-fi.com/devobserver" target="_blank" rel="noreferrer">
 								Ko-fi
 							</a>
-						</li>
+						</li>*/}
 						<li>
 							<a href="https://twitter.com/DevObserverCom" target="_blank" rel="noreferrer">
-								Twitter
+								<Image src="/images/twitter.png" alt="" width="24" height="24" style={{ maxWidth: '100%' }} />
 							</a>
 						</li>
 						<li>
 							<a href="https://www.instagram.com/devobserver" target="_blank" rel="noreferrer">
-								Instagram
+								<Image
+									src="/images/instagram.png"
+									alt=""
+									width="24"
+									height="24"
+									style={{ maxWidth: '100%' }}
+								/>
 							</a>
 						</li>
 					</x.ul>

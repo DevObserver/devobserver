@@ -1,6 +1,3 @@
-const defaultFontFamily =
-	"-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif";
-
 export const theme = {
 	screens: {
 		_: 0,
@@ -32,6 +29,7 @@ export const theme = {
 		640: '640px',
 	},
 	space: {
+		auto: 'auto',
 		0: '0',
 		1: '1px',
 		2: '2px',

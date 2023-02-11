@@ -95,9 +95,9 @@ export const Footer = () => {
 				</x.div>
 				<x.div>
 					<p>
-						2022. Brought to You with ❤️ by{' '}
-						<a href="https://twitter.com/iamfrntdv" target="_blank" rel="noreferrer">
-							@iamfrntdv
+						2023. Brought to You with ❤️ by{' '}
+						<a href="https://twitter.com/eduarddotgg" target="_blank" rel="noreferrer">
+							@eduarddotgg
 						</a>
 						.
 					</p>
