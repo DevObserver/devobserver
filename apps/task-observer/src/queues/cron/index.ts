@@ -55,5 +55,5 @@ cronWorker.on('completed', (job) => {
 });
 
 cronWorker.on('failed', (job, error) => {
-	log.error(logNameSpace, `${queueName} - ${job.id} has failed! ${error.message}`);
+	log.error(logNameSpace, `${queueName} - ${job?.id} has failed! ${error.message}`);
 });

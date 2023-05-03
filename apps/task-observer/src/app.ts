@@ -13,9 +13,9 @@ const logNameSpace = 'TaskObserver';
 			'',
 			{},
 			{
-				repeat: {
-					cron: '*/60 * * * *',
-				},
+				// repeat: {
+				// 	pattern: '*/60 * * * *',
+				// },
 			}
 		);
 	}

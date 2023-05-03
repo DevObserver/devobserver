@@ -39,11 +39,11 @@
     "packages/*"
   ],
   "dependencies": {
-    "turbo": "1.6.3"
+    "turbo": "1.8.8"
   },
   "devDependencies": {
     "dotenv-checker": "1.1.5",
-    "prettier": "2.8.1"
+    "prettier": "2.8.8"
   },
   "engines": {
     "node": ">=17.x",

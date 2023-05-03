@@ -34,10 +34,6 @@ export const config = {
 	googleClientSecret: env.get('GOOGLE_CLIENT_SECRET').default('').asString(),
 	googleCallbackUrl: env.get('GOOGLE_CALLBACK_URL').default('').asString(),
 
-	twitterConsumerKey: env.get('TWITTER_CONSUMER_KEY').default('').asString(),
-	twitterConsumerSecret: env.get('TWITTER_CONSUMER_SECRET').default('').asString(),
-	twitterCallbackUrl: env.get('TWITTER_CALLBACK_URL').default('').asString(),
-
 	smtpHost: env.get('MAIL_SMTP_HOST').asString(),
 	smtpPort: env.get('MAIL_SMTP_PORT').asPortNumber(),
 	smtpUser: env.get('MAIL_SMTP_USER').asString(),

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ReactComponent as Github } from '../assets/social/github.svg';
 import { ReactComponent as Google } from '../assets/social/google.svg';
-import { ReactComponent as Twitter } from '../assets/social/twitter.svg';
 import { Button, Heading, Text, VStack } from '../ui';
 import { NativeLink } from '../ui/NativeLink';
 import { signIn } from '../utils/sign-in';
@@ -15,10 +14,6 @@ const providers = [
 	{
 		id: 'google',
 		icon: <Google />,
-	},
-	{
-		id: 'twitter',
-		icon: <Twitter />,
 	},
 ];
 

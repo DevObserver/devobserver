@@ -13,7 +13,9 @@
     "db:studio": "prisma studio",
     "db:pull": "prisma db pull",
     "db:push": "prisma db push",
-    "db:generate-schemas": "prisma generate"
+    "db:generate": "prisma generate",
+    "db:seed": "ts-node src/seed/seed.ts",
+    "db:truncate": "ts-node src/seed/truncate.ts"
   },
   "dependencies": {
     "@devobserver/tsconfig": "*",
@@ -21,6 +23,7 @@
     "prisma": "4.7.1"
   },
   "devDependencies": {
-    "npm-run-all": "4.1.5"
+    "npm-run-all": "4.1.5",
+    "ts-node": "^10.9.1"
   }
 }

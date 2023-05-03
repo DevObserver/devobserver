@@ -1,9 +1,8 @@
 {
   "name": "@devobserver/landing",
-  "version": "1.2.1",
+  "version": "1.5.1",
   "description": "",
   "author": "Pochtar Eduard <iamfrntdv@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,30 +10,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
-    "@xstyled/emotion": "3.7.0",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
+    "@xstyled/emotion": "3.8.0",
     "graphql": "16.6.0",
-    "graphql-request": "5.1.0",
-    "next": "13.1.1",
-    "postcss": "8.4.21",
+    "graphql-request": "5.2.0",
+    "next": "13.3.4",
+    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "0.31.3"
+    "sharp": "0.32.1"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.31.0",
-    "eslint-config-next": "13.1.1",
-    "eslint-config-prettier": "8.6.0",
-    "eslint-import-resolver-typescript": "3.5.2",
-    "eslint-plugin-import": "2.26.0",
+    "@types/node": "18.16.3",
+    "@types/react": "18.2.1",
+    "@types/react-dom": "18.2.2",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.4",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-import-resolver-typescript": "3.5.5",
+    "eslint-plugin-import": "2.27.5",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.31.11",
+    "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-simple-import-sort": "8.0.0",
-    "typescript": "4.9.4"
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "typescript": "5.0.4"
   }
 }
