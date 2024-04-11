@@ -126,14 +126,13 @@ const Section1 = () => {
 							</Text>
 						</x.div>
 
+						<Text>No longer available on:</Text>
 						<x.ul display="flex" alignItems="center" gap={24}>
 							{linkList.map((link) => {
 								return (
 									<li key={link.name}>
 										{link.url ? (
-											<a href={link.url} target="_blank" rel="noreferrer">
-												{link.image}
-											</a>
+											<x.div opacity={0.2}>{link.image}</x.div>
 										) : (
 											<x.div opacity={0.2}>{link.image}</x.div>
 										)}
